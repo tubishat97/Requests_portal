@@ -1,0 +1,328 @@
+body {
+    margin: 0;
+    font-family: "Nunito Sans", Tajawal, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f8fafc;
+}
+
+.display_ckeditor {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.wrapper .header-top[header-theme="blue"] {
+    background: #016193;
+}
+
+.card-blue::after {
+    background: #016193;
+}
+
+.btn-primary {
+    background-color: #016193;
+    border: 1px solid #016193;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-content .nav-container .navigation-main .nav-item.has-sub .submenu-content .menu-item.active {
+    color: #016193;
+    font-weight: bold;
+}
+
+.wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.open::after, .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.active::after {
+    background-color: #fa8239;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-content .nav-container .navigation-main .nav-item.active::after {
+    background: #016193;
+    border-radius: 10px;
+    color: #fff;
+    content: " ";
+    height: 30px;
+    left: 0;
+    top: 10px;
+    position: absolute;
+    width: 3px;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-content .nav-container .navigation-main .nav-item a i {
+    font-size: 13px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: 0;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-content .nav-container .navigation-main .nav-lavel {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 1;
+    padding: 8px 20px 8px;
+    text-transform: capitalize;
+    visibility: visible;
+    width: 100%;
+    color: #fff;
+    background: #016193;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+.h-300 {
+    height: 300px;
+}
+
+.h-400 {
+    height: 400px;
+}
+
+..auth-wrapper .authentication-form .logo-centered {
+    width: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.auth-wrapper .authentication-form .logo-centered img {
+    height: 120px !important;
+}
+
+.auth-wrapper {
+    background: #e4e4e4;
+    height: 100vh;
+}
+
+.auth-wrapper .authentication-form .form-group .form-control {
+    border-radius: 0px;
+    height: 40px;
+}
+
+.auth-wrapper .authentication-form .form-group .form-control~i {
+    top: 13px!important;
+    color: #016193;
+}
+
+.auth-wrapper .authentication-form {
+    font-size: .9rem;
+    width: 350px;
+    display: block;
+    padding: 25px 30px;
+    margin: 100px 0;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.btn-custom {
+    border-radius: 0;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    background-color: #016193;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-content .nav-container .navigation-main .nav-item a i {
+    font-size: 14px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: 0;
+    width: 14px;
+    color: #222 !important;
+}
+
+.note-editor.note-frame .note-editing-area .note-editable {
+    direction: rtl;
+    text-align: right;
+    font-family: Tajawal !important;
+}
+
+.card .card-header h3 {
+    float: left;
+}
+
+.scrollable {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.h-divider {
+    width: 15%;
+    height: 2px;
+    position: relative;
+    background: #016193;
+    margin: 10px auto;
+}
+
+label {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.sub-title {
+    color: #016193 !important;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-content .nav-container .navigation-main .nav-item a span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.password-block {
+    position: absolute;
+    top: 200px;
+    right: -220px;
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #f39a28;
+}
+
+.password-block:before {
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 20px solid #f39a28;
+    position: absolute;
+    left: -20px;
+    top: 50px;
+}
+
+.badge-right {
+    float: right;
+    position: initial !important;
+}
+
+#Widget-line-chart1, #Widget-line-chart2, #Widget-line-chart3, #Widget-line-chart4 {
+    width: 100%;
+    height: 75px
+}
+
+#realtime-profit, #sale-diff {
+    height: 150px;
+}
+
+#sec-ecommerce-chart-line {
+    height: 30px;
+}
+
+#sec-ecommerce-chart-bar {
+    height: 100px;
+}
+
+#app-sale1, #app-sale2, #app-sale3, #app-sale4 {
+    height: 50px;
+}
+
+.chart-shadow {
+    height: 400px;
+}
+
+.st-cir-chart {
+    height: 450px!important;
+}
+
+#status-round-1, #status-round-2, #status-round-3, #status-round-4 {
+    width: 80px !important;
+    height: 80px !important;
+}
+
+#card-412 {
+    min-height: 412px;
+}
+
+#card-422 {
+    min-height: 422px;
+}
+
+#visitfromworld {
+    width: 100%;
+    height: 350px;
+}
+
+.card-300 {
+    height: 300px;
+}
+
+.card-484 {
+    min-height: 484px;
+}
+
+.card-180 {
+    min-height: 180px;
+}
+
+.card-200 {
+    min-height: 200px;
+}
+
+.th-50 {
+    width: 50%;
+}
+
+.font-150 {
+    font-size: 150px;
+}
+
+#pbc-1, #pbc-2, #pbc-3, #pbc-4, #pbc-5, #pbc-6 {
+    height: 50px;
+}
+
+/*.sale-card{
+	min-height: 301px;
+}*/
+
+#deal-analytic-chart {
+    height: 300 !important;
+}
+
+#tot-rev-chart {
+    width: 100px;
+    height: 100px;
+}
+
+#allocation-map, #allocation-chart {
+    height: 250px;
+}
+
+#sal-income, #rent-income, #income-analysis {
+    height: 100px;
+}
+
+.progress-6 {
+    height: 6px;
+}
+
+.hide {
+    display: none;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    margin-top: 1rem;
+    border: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-top: 12px solid rgb(244 245 249);
+}
+
+.with-errors {
+    color: #e00000;
+    font-size: 12px;
+}
+
+li.paginate_button.page-item.active a {
+    background-color: #016193 !important;
+    color: #ffffff !important;
+}
