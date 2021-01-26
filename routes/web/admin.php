@@ -14,5 +14,13 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
         Route::post('/profile/update', 'UserController@updateProfile')->name('profile.update');
 
         Route::resource('customer', 'CustomerController')->name('*', 'customer');
+
+        Route::resource('flight', 'FlightController')->name('*', 'flight');
+
+        Route::resource('airport', 'AirportController')->name('*', 'airport');
+
+        Route::resource('airplane', 'AirplaneController')->name('*', 'airplane');
+
+        Route::resource('airline', 'AirlineController')->name('*', 'airline');
     });
 });

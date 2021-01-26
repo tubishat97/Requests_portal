@@ -23,6 +23,19 @@
                 <div class="nav-item {{ ($route_name == 'admin.customer.index') ? 'active' : '' }}">
                     <a href="{{route('admin.customer.index')}}"><i class="fas fa-users"></i><span>{{ __('Customers')}}</span></a>
                 </div>
+                <div class="nav-lavel">{{ __('Flight attributes')}}</div>
+                <div class="nav-item {{ ($route_name == 'admin.flight.index') ? 'active' : '' }}">
+                    <a href="{{route('admin.flight.index')}}"><i class="fas fa-plane-departure"></i></i><span>{{ __('Flights')}}</span></a>
+                </div>
+                <div class="nav-item {{ ($route_name == 'admin.airplane.index') ? 'active' : '' }}">
+                    <a href="{{route('admin.airplane.index')}}"><i class="fas fa-plane"></i><span>{{ __('Airplanes')}}</span></a>
+                </div>
+                <div class="nav-item {{ ($route_name == 'admin.airline.index') ? 'active' : '' }}">
+                    <a href="{{route('admin.airline.index')}}"><i class="fas fa-broadcast-tower"></i><span>{{ __('Airlines')}}</span></a>
+                </div>
+                <div class="nav-item {{ ($route_name == 'admin.airport.index') ? 'active' : '' }}">
+                    <a href="{{route('admin.airport.index')}}"><i class="fas fa-plane-arrival"></i><span>{{ __('Airports')}}</span></a>
+                </div>
             </nav>
         </div>
     </div>
