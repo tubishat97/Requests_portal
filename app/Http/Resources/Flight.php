@@ -17,9 +17,9 @@ class Flight extends JsonResource
         return [
             'flight_number' => $this->flight_number,
             'flight_airline' => Airline::make($this->airline),
-            'flight_from_airport' => Airline::make($this->fromAirport),
-            'flight_to_airport' => Airline::make($this->toAirport),
-            'flight_airplane' => Airline::make($this->airline),
+            'flight_from_airport' => Airport::make($this->fromAirport),
+            'flight_to_airport' => Airport::make($this->toAirport),
+            'flight_airplane' => Airplane::make($this->airline),
         ];
     }
 }
