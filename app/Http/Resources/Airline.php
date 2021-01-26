@@ -14,6 +14,8 @@ class Airline extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'airline_name' => $this->name,
+        ];
     }
 }

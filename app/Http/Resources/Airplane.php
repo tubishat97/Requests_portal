@@ -14,6 +14,10 @@ class Airplane extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'airplane_name' => $this->name,
+            'airplane_max_seat' => $this->max_seat,
+            'airplane_type' => $this->type,
+        ];
     }
 }

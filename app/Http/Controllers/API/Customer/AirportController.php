@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\Customer;
 
+use App\Http\Controllers\Controller;
 use App\Models\Airport;
 use Illuminate\Http\Request;
 

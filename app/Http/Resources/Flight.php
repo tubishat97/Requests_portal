@@ -14,6 +14,12 @@ class Flight extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'flight_number' => $this->flight_number,
+            'flight_airline' => Airline::make($this->airline),
+            'flight_from_airport' => Airline::make($this->fromAirport),
+            'flight_to_airport' => Airline::make($this->toAirport),
+            'flight_airplane' => Airline::make($this->airline),
+        ];
     }
 }

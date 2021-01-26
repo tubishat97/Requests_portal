@@ -16,7 +16,7 @@ class CreateAirplanesTable extends Migration
         Schema::create('airplanes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('city_location');
+            $table->integer('max_seat');
             $table->string('type');
             $table->timestamps();
         });

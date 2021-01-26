@@ -15,7 +15,7 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
-            $table->string('flight_number');
+            $table->string('flight_number')->unique();
             $table->foreignId('airline_id')->constrained('airlines')->onDelete('cascade');
             $table->foreignId('from_airport_id')->constrained('airports')->onDelete('cascade');
             $table->foreignId('to_airport_id')->constrained('airports')->onDelete('cascade');

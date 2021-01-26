@@ -14,6 +14,11 @@ class Airport extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'airport_name' => $this->name,
+            'airport_city_location' => $this->city_location,
+            'airport_lat' => $this->lat,
+            'airport_lon' => $this->lon,
+        ];
     }
 }

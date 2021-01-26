@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Flight;
+use App\Http\Controllers\Controller;
+use App\Models\Airport;
 use Illuminate\Http\Request;
 
-class FlightController extends Controller
+class AirportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class FlightController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Flight  $flight
+     * @param  \App\Models\Airport  $airport
      * @return \Illuminate\Http\Response
      */
-    public function show(Flight $flight)
+    public function show(Airport $airport)
     {
         //
     }
@@ -52,10 +53,10 @@ class FlightController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Flight  $flight
+     * @param  \App\Models\Airport  $airport
      * @return \Illuminate\Http\Response
      */
-    public function edit(Flight $flight)
+    public function edit(Airport $airport)
     {
         //
     }
@@ -64,10 +65,10 @@ class FlightController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Flight  $flight
+     * @param  \App\Models\Airport  $airport
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Flight $flight)
+    public function update(Request $request, Airport $airport)
     {
         //
     }
@@ -75,10 +76,10 @@ class FlightController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Flight  $flight
+     * @param  \App\Models\Airport  $airport
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flight $flight)
+    public function destroy(Airport $airport)
     {
         //
     }
