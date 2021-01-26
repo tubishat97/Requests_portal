@@ -19,7 +19,7 @@ class Flight extends JsonResource
             'flight_airline' => Airline::make($this->airline),
             'flight_from_airport' => Airport::make($this->fromAirport),
             'flight_to_airport' => Airport::make($this->toAirport),
-            'flight_airplane' => Airplane::make($this->airline),
+            'flight_airplane' => Airplane::make($this->airplane),
         ];
     }
 }

@@ -3,84 +3,26 @@
 namespace App\Http\Controllers\API\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\FlightCollection;
 use App\Models\Flight;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 
 class FlightController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    use ApiResponser;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function search(Request $request)
     {
-        //
-    }
+        $searchQuery = Flight::query();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Flight  $flight
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Flight $flight)
-    {
-        //
-    }
+        if ($request->has('flight_number')) {
+            $searchQuery->where('flight_number', 'LIKE', "%{$request->flight_number}%");
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Flight  $flight
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Flight $flight)
-    {
-        //
-    }
+        $flights = $searchQuery->get();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Flight  $flight
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Flight $flight)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Flight  $flight
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Flight $flight)
-    {
-        //
+        return $this->successResponse(200, trans('api.public.done'), 200, new FlightCollection($flights));
     }
 }

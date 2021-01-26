@@ -1,0 +1,816 @@
+{
+	"info": {
+		"_postman_id": "abdeb8a7-6822-43e5-a3ea-d94ae3ae6c8c",
+		"name": "flight_tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Profile",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{local}}/customer/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "password",
+											"value": "{{{{bearer-token}}}}",
+											"type": "string"
+										},
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fullname",
+											"value": "Kareem Tubishat",
+											"type": "text"
+										},
+										{
+											"key": "birthdate",
+											"value": "1997-12-15",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/user/Pictures/setting.png"
+										},
+										{
+											"key": "device_id",
+											"value": "074a322a-4dc7-11eb-ae93-0242ac130002",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update username",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "password",
+											"value": "{{{{bearer-token}}}}",
+											"type": "string"
+										},
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"description": "required|min:6",
+											"type": "text"
+										},
+										{
+											"key": "rpassword",
+											"value": "123456",
+											"description": "required|same:password",
+											"type": "text"
+										},
+										{
+											"key": "fullname",
+											"value": "kareem",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/customer/register",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"customer",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"customer_bearer_token\", jsonData.data.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"description": "phone_number or username",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/customer/login",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"customer",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify SMS",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"type": "text"
+										},
+										{
+											"key": "verification_code",
+											"value": "755976",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/customer/verify-sms",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"customer",
+										"verify-sms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resend sms",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/customer/resend-sms",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"customer",
+										"resend-sms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forget Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"description": "required",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/forget-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"forget-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password (for forget)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "12345676",
+											"description": "required|min 6",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "12345676",
+											"description": "required|same:password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/reset-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify SMS For New Mobile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "962796507289",
+											"type": "text"
+										},
+										{
+											"key": "verification_code",
+											"value": "466145",
+											"type": "text"
+										},
+										{
+											"key": "old_username",
+											"value": "customer@test.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/verify-sms-phone",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"verify-sms-phone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "password",
+											"value": "{{{{bearer-token}}}}",
+											"type": "string"
+										},
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "old_password",
+											"value": "123456",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "1234567",
+											"description": "required|min:6|different:old_password",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "1234567",
+											"description": "required|same:new_password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/change-password",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"postman.setEnvironmentVariable(\"customer_bearer_token\", \"-\");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{local}}/customer/logout",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Social",
+					"item": [
+						{
+							"name": "Social Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "provider",
+											"value": "google",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/social/login",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"social",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Link Another Account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "ar"
+									},
+									{
+										"key": "",
+										"type": "text",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "provider_id",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "provider",
+											"value": "facebook",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local}}/customer/social/link",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"social",
+										"link"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Public",
+					"item": [
+						{
+							"name": "Search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/customer/search?flight_number=jo1",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"customer",
+										"search"
+									],
+									"query": [
+										{
+											"key": "flight_number",
+											"value": "jo1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

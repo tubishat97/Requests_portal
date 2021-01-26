@@ -12,6 +12,7 @@ Route::prefix('customer')->namespace('API\Customer')->middleware('apilogger')->g
     Route::post('forget-password', 'AuthController@forgetPassword');
     Route::post('reset-password', 'AuthController@resetPassword');
     Route::post('social/login', 'AuthController@socialLogin');
+    Route::get('search', 'FlightController@search');
 
     Route::middleware(['api', 'multiauth:customer'])->group(function () {
 

@@ -18,7 +18,7 @@ class Flight extends Model
 
     public function toAirport()
     {
-        return $this->belongsTo(Customer::class, 'to_airport_id');
+        return $this->belongsTo(Airport::class, 'to_airport_id');
     }
 
     public function airplane()
