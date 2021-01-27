@@ -64,7 +64,7 @@ class FlightController extends Controller
         try {
             $flight = new Flight();
             $flight->airline_id = $request->airline;
-            $flight->to_airport_id = $request->from_airport;
+            $flight->from_airport_id = $request->from_airport;
             $flight->to_airport_id = $request->to_airport;
             $flight->airplane_id = $request->airplane;
             $flight->save();
@@ -125,7 +125,7 @@ class FlightController extends Controller
         try {
 
             $flight->airline_id = $request->airline;
-            $flight->to_airport_id = $request->from_airport;
+            $flight->from_airport_id = $request->from_airport;
             $flight->to_airport_id = $request->to_airport;
             $flight->airplane_id = $request->airplane;
             $flight->save();
