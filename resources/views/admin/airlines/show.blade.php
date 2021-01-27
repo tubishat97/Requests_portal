@@ -3,7 +3,7 @@
 @section('content')
 <!-- push external head elements to head -->
 @push('head')
-<title>{{ __('Add airport')}}</title>
+<title>{{ __('Update airline')}}</title>
 <link rel="stylesheet" href="{{ asset('plugins/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/mohithg-switchery/dist/switchery.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/summernote/dist/summernote-bs4.css') }}">
@@ -14,9 +14,9 @@
         <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
-                    <i class="fas fa-plane-arrival bg-linkedin"></i>
+                    <i class="fas fa-broadcast-tower bg-linkedin"></i>
                     <div class="d-inline">
-                        <h5>{{ __('Add airport')}}</h5>
+                        <h5>{{ __('Update airline')}}</h5>
                     </div>
                 </div>
             </div>
@@ -27,9 +27,9 @@
                             <a href="{{ route('admin.home') }}"><i class="ik ik-home"></i></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route('admin.airport.index') }}">{{ __('Airports')}}</a>
+                            <a href="{{ route('admin.airline.index') }}">{{ __('Airlines')}}</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('Add airport')}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('Update airline')}}</li>
                     </ol>
                 </nav>
             </div>
@@ -42,34 +42,22 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">
-                    <h3>{{ __('Add airport')}}</h3>
+                    <h3>{{ __('Update airline')}}</h3>
                 </div>
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="{{ route('admin.airport.store') }}">
+                    <form enctype="multipart/form-data" method="POST" action="{{ route('admin.airline.update', $airline->id) }}">
                         @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="hidden" id="lon" name="lon"
-                                        class="form-control @error('lon') is-invalid @enderror" placeholder="lon"
-                                        value="{{old('lon')}}">
-                                    <input type="hidden" id="lat" name="lat"
-                                        class="form-control @error('lat') is-invalid @enderror" placeholder="lat"
-                                        value="{{old('lat')}}">
-                                    <input id="pac-input" name="city_location" class="form-control" type="text"
-                                        placeholder="{{ __('admin-content.search-for-location')}}" required>
-                                            <div class="help-block with-errors"></div>
-                                    <div style="height:342px;" id="map"></div>
-                                    </div>
-                                </div>
                                 <hr class="cm-bold">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <h4 class="sub-title"><b>{{ __('admin-content.basic-information')}}</b></h4>
                                         <div class="form-group">
                                             <label>{{ __('name') }}<span
                                                     class="text-red">*</span></label>
-                                            <input type="text" id="name" min="0" step="0.01" name="name"
+                                            <input type="text" id="name" name="name" value="{{ $airline->name }}"
                                                 class="form-control" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -109,8 +97,8 @@
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {
-                lat: 31.9446628,
-                lng: 35.8902066
+                lat: Number("{{$airline->lat}}"),
+                lng: Number("{{$airline->lon}}")
             },
             zoom: 13
         });
