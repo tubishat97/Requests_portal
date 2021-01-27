@@ -18,7 +18,7 @@ class FlightController extends Controller
         $searchQuery = Flight::query();
 
         if ($request->has('flight_number')) {
-            $searchQuery->where('flight_number', 'LIKE', "%{$request->flight_number}%");
+            $searchQuery->where('flight_number', $request->flight_number);
         }
 
         $flights = $searchQuery->get();
