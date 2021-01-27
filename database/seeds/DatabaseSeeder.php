@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         #region User
 
         echo ("Seeding: User ...\n");
-        factory(UserProfile::class, 10)->create();
+        factory(UserProfile::class, 1)->create();
         User::find(1)->update([
-            'username' => 'admin@test.com',
+            'username' => 'admin@flighttracker.com',
         ]);
 
         #endregion
@@ -32,9 +32,9 @@ class DatabaseSeeder extends Seeder
         #region Customer
 
         echo ("Seeding: Customer ...\n");
-        factory(CustomerProfile::class, 10)->create();
+        factory(CustomerProfile::class, 1)->create();
         Customer::find(1)->update([
-            'username' => 'customer@test.com',
+            'username' => 'customer@flighttracker.com',
         ]);
 
         #endregion
