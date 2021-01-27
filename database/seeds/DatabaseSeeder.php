@@ -31,11 +31,11 @@ class DatabaseSeeder extends Seeder
 
         #region Customer
 
-        echo ("Seeding: Customer ...\n");
-        factory(CustomerProfile::class, 1)->create();
-        Customer::find(1)->update([
-            'username' => 'customer@flighttracker.com',
-        ]);
+        // echo ("Seeding: Customer ...\n");
+        // factory(CustomerProfile::class, 1)->create();
+        // Customer::find(1)->update([
+        //     'username' => 'customer@flighttracker.com',
+        // ]);
 
         #endregion
     }
