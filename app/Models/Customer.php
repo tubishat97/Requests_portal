@@ -37,29 +37,4 @@ class Customer extends Authenticatable
             ['account_verified_at', '!=', null],
         ])->first();
     }
-
-    public function wishlists()
-    {
-        return $this->hasMany(Wishlist::class);
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
-
-    public function customerAddresses()
-    {
-        return $this->hasMany(CustomerAddress::class);
-    }
-
-    public function defaultCustomerAddress()
-    {
-        return $this->hasMany(CustomerAddress::class)->where('is_active', 1);
-    }
-
-    public function customerNotifications()
-    {
-        return $this->hasMany(CustomerNotification::class)->where('is_deleted', false)->orderBy('created_at', 'desc');
-    }
 }

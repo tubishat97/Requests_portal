@@ -16,10 +16,6 @@ class User extends Authenticatable
     protected $hidden = ['password'];
     protected $casts = ['account_verified_at' => 'datetime'];
 
-    public function verifications()
-    {
-        return $this->morphMany(Verification::class, 'accountable')->orderBy('id', 'desc');
-    }
 
     public function profile()
     {
