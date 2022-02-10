@@ -53,12 +53,12 @@
                                     <div class="col text-left">
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            <span class="custom-control-label">&nbsp;{{ __('Remember me')}}</span>
+                                            <span class="custom-control-label">&nbsp;{{ __('admin-content.remember_me')}}</span>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="sign-btn text-center">
-                                    <button class="btn btn-custom">{{ __('Login')}}</button>
+                                    <button class="btn btn-custom">{{ __('admin-content.login')}}</button>
                                 </div>
                             </form>
                         </div>

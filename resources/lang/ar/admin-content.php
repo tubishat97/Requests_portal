@@ -37,6 +37,8 @@ return [
     "decision_of_the_social_security_committee_or_the_district_medical_committee" => "قرار لجنة الضمان الاجتماعي او اللجنة الطبية اللوائية",
     "all_necessary_reports_of_disability" => "جميع التقارير اللازمة الخاصة بالعجز	",
     "police_report_in_case_of_inability_due_to_accident" => 'تقرير الشرطة في حالة عدم القدرة بسبب حادث',
-    'submit' => 'حفظ'
-
+    'submit' => 'حفظ',
+    'remember_me' => 'تذكرني',
+    'password' => 'كلمة المرور',
+    'login' => 'دخول',
 ];

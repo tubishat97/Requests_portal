@@ -372,5 +372,6 @@ return [
     "an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities" => "An original detailed medical report on the state of disability, indicating the reason for the disability, its date and the circumstances surrounding it from the official competent medical authorities",
     "decision_of_the_social_security_committee_or_the_district_medical_committee" => "Decision of the Social Security Committee or the District Medical Committee",
     "all_necessary_reports_of_disability" => "All necessary reports of disability",
-    "police_report_in_case_of_inability_due_to_accident" => 'Police report in case of inability due to accident'
+    "police_report_in_case_of_inability_due_to_accident" => 'Police report in case of inability due to accident',
+    'remember_me' => 'Remember me',
 ];
