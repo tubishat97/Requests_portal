@@ -86,6 +86,14 @@ return [
         'ar',
     ],
 
+    'locales' => [
+        'en' => 'English',
+        'ar' => 'Arabic',
+        'fa' => 'Persian',
+        'id' => 'Indonesian',
+        'ru' => 'Russian'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

@@ -19,11 +19,12 @@
                 <div class="nav-item">
                     <a href="{{ route('admin.home') }}"><i class="fas fa-desktop"></i><span>{{ __('Dashboard')}}</span></a>
                 </div>
-                <div class="nav-lavel">{{ __('Users management')}}</div>
+                <div class="nav-lavel">{{ __('Requests')}}</div>
                 <div class="nav-item {{ ($route_name == 'admin.customer.index') ? 'active' : '' }}">
-                    <a href="{{route('admin.customer.index')}}"><i class="fas fa-users"></i><span>{{ __('Customers')}}</span></a>
+                    <a href="{{route('admin.customer.index')}}"><i class="fas fa-bed"></i><span>{{ __('Death')}}</span></a>
+                    <a href="{{route('admin.customer.index')}}"><i class="fas fa-blind"></i><span>{{ __('Inabilities')}}</span></a>
                 </div>
-                <div class="nav-lavel">{{ __('Flight attributes')}}</div>
+                {{-- <div class="nav-lavel">{{ __('Flight attributes')}}</div>
                 <div class="nav-item {{ ($route_name == 'admin.flight.index') ? 'active' : '' }}">
                     <a href="{{route('admin.flight.index')}}"><i class="fas fa-plane-departure"></i></i><span>{{ __('Flights')}}</span></a>
                 </div>
@@ -35,7 +36,7 @@
                 </div>
                 <div class="nav-item {{ ($route_name == 'admin.airport.index') ? 'active' : '' }}">
                     <a href="{{route('admin.airport.index')}}"><i class="fas fa-plane-arrival"></i><span>{{ __('Airports')}}</span></a>
-                </div>
+                </div> --}}
             </nav>
         </div>
     </div>

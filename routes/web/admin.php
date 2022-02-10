@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+Route::namespace('Admin')->name('admin.')->group(function () {
     Route::get('/login', 'Auth\AuthController@showLoginForm')->name('login_form');
     Route::post('/login', 'Auth\AuthController@login')->name('login');
 

@@ -27,12 +27,12 @@
                     <div class="col-xl-4 col-lg-4 col-md-4 m-auto">
                         <div class="authentication-form mx-auto">
                             <div class="text-center mb-3">
-                                <img class="img-fluid h-50" src="{{ asset('img/logo.jpg') }}" alt="Smile">
+                                {{-- <img class="img-fluid h-25" src="{{ asset('img/logo.png') }}" alt="Smile"> --}}
                             </div>
                             <form method="POST" action="{{ route('admin.login') }}">
                             @csrf
                                 <div class="form-group">
-                                    <input id="username" type="text" placeholder="{{ __('username')}}" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                    <input id="username" type="text" placeholder="{{ __('admin-content.username')}}" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
                                     <i class="ik ik-user"></i>
                                     @error('username')
                                         <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input id="password" type="password" placeholder="{{ __('password')}}" class="form-control @error('password') is-invalid @enderror" name="password" required>
+                                    <input id="password" type="password" placeholder="{{ __('admin-content.password')}}" class="form-control @error('password') is-invalid @enderror" name="password" required>
                                     <i class="ik ik-lock"></i>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
