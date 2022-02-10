@@ -10,17 +10,25 @@ Route::namespace('Admin')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
 
-        Route::get('/profile', 'UserController@profile')->name('profile');
-        Route::post('/profile/update', 'UserController@updateProfile')->name('profile.update');
+        Route::get('/death-requests', 'RequestController@deathRequestIndex')->name('request.death');
+        Route::get('/death-requests/add', 'RequestController@addDeathRequest')->name('request.death.add');
+        Route::post('/death-requests/store', 'RequestController@storeDeathRequest')->name('request.death.store');
 
-        Route::resource('customer', 'CustomerController')->name('*', 'customer');
+        Route::get('/inability-requests', 'RequestController@inabilityRequestIndex')->name('request.inability');
+        Route::get('/inability-requests/add', 'RequestController@addInabilityRequest')->name('request.inability.add');
+        Route::post('/inability-requests/store', 'RequestController@storeInabilityRequest')->name('request.inability.store');
 
-        Route::resource('flight', 'FlightController')->name('*', 'flight');
+        // Route::get('/profile', 'UserController@profile')->name('profile');
+        // Route::post('/profile/update', 'UserController@updateProfile')->name('profile.update');
 
-        Route::resource('airport', 'AirportController')->name('*', 'airport');
+        // Route::resource('customer', 'CustomerController')->name('*', 'customer');
 
-        Route::resource('airplane', 'AirplaneController')->name('*', 'airplane');
+        // Route::resource('flight', 'FlightController')->name('*', 'flight');
 
-        Route::resource('airline', 'AirlineController')->name('*', 'airline');
+        // Route::resource('airport', 'AirportController')->name('*', 'airport');
+
+        // Route::resource('airplane', 'AirplaneController')->name('*', 'airplane');
+
+        // Route::resource('airline', 'AirlineController')->name('*', 'airline');
     });
 });

@@ -6,7 +6,7 @@
 @section('content')
 
 @push('head')
-<title>{{ __('Customers')}}</title>
+<title>{{ __('admin-content.inability-requests') }}</title>
 @endpush
 
 <div class="container-fluid">
@@ -14,9 +14,9 @@
         <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
-                    <i class="fas fa-users bg-linkedin"></i>
+                    <i class="fas fa-blind bg-linkedin"></i>
                     <div class="d-inline">
-                        <h5>{{ __('Customers')}}</h5>
+                        <h5>{{ __('admin-content.inability-requests') }}</h5>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('admin.home')}}"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('Customers')}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('admin-content.inability-requests') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -38,8 +38,11 @@
         <!-- end message area-->
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h3>{{ __('Customers')}}</h3>
+                <div class="card-header" style="display: inline-block;">
+                    <h3>{{ __('admin-content.inability-requests') }}</h3>
+                    <div class="right" style="float: right;">
+                        <a href="{{ route('admin.request.inability.add') }}" class="btn btn-primary js-dynamic-enable">{{ __('admin-content.add') }}</a>
+                    </div>
                 </div>
                 <div class="card-body table-responsive">
                     <table id="data_table" class="table">

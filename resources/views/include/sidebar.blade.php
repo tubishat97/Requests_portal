@@ -2,7 +2,7 @@
     <div class="sidebar-header">
         <a class="header-brand" href="#">
             <div class="logo-img text-center">
-                <h4><a href="{{ route('admin.home') }}">Admin Panel</a></h4>
+                <h4><a href="{{ route('admin.home') }}">{{ __('admin-content.admin-panel')}}</a></h4>
             </div>
         </a>
         <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
@@ -17,12 +17,12 @@
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main" style="">
                 <div class="nav-item">
-                    <a href="{{ route('admin.home') }}"><i class="fas fa-desktop"></i><span>{{ __('Dashboard')}}</span></a>
+                    <a href="{{ route('admin.home') }}"><i class="fas fa-desktop"></i><span>{{ __('admin-content.dashboard')}}</span></a>
                 </div>
-                <div class="nav-lavel">{{ __('Requests')}}</div>
-                <div class="nav-item {{ ($route_name == 'admin.customer.index') ? 'active' : '' }}">
-                    <a href="{{route('admin.customer.index')}}"><i class="fas fa-bed"></i><span>{{ __('Death')}}</span></a>
-                    <a href="{{route('admin.customer.index')}}"><i class="fas fa-blind"></i><span>{{ __('Inabilities')}}</span></a>
+                <div class="nav-lavel">{{ __('admin-content.requests')}}</div>
+                <div class="nav-item {{ ($route_name == 'admin.request.*') ? 'active' : '' }}">
+                    <a href="{{route('admin.request.death')}}"><i class="fas fa-bed"></i><span>{{ __('admin-content.death')}}</span></a>
+                    <a href="{{route('admin.request.inability')}}"><i class="fas fa-blind"></i><span>{{ __('admin-content.inabilities')}}</span></a>
                 </div>
                 {{-- <div class="nav-lavel">{{ __('Flight attributes')}}</div>
                 <div class="nav-item {{ ($route_name == 'admin.flight.index') ? 'active' : '' }}">
