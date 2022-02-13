@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Authenticate extends Middleware
 {
@@ -21,7 +22,7 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, ...$guards)
     {
         //check here if the user is authenticated
-        if (!Auth::check()) {
+        if (!Session::get('auth', false)) {
             return redirect()->route('admin.login_form');
         }
 

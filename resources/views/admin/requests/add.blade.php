@@ -80,12 +80,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="birthdate">{{ __('admin-content.birthdate') }}<span
+                                            <label for="date_of_occurrence">{{ __('admin-content.date_of_occurrence') }}<span
                                                 class="text-red">*</span></label>
-                                            <input type="date" class="form-control datetimepicker-input" id="birthdate"
-                                                name="birthdate" data-toggle="datetimepicker" data-target="#to" value="">
+                                            <input type="date" class="form-control datetimepicker-input" id="date_of_occurrence"
+                                                name="date_of_occurrence" data-toggle="datetimepicker" data-target="#to" value="">
                                             <div class="help-block with-errors"></div>
-                                            @error('birthdate')
+                                            @error('date_of_occurrence')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -111,9 +111,9 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">{{
-                                                __('admin-content.description') }}<span
+                                                __('admin-content.reason') }}<span
                                                     class="text-red">*</span></label>
-                                            <textarea type="text" name="description" required
+                                            <textarea type="text" name="reason" required
                                                 class="form-control"></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>

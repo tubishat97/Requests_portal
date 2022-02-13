@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Session;
+
 if (!function_exists('getHeaderLang')) {
     /**
      * Read HTTP_ACCEPT_LANGUAGE from header
@@ -39,5 +41,82 @@ if (!function_exists('slugify')) {
         }
 
         return $text;
+    }
+}
+
+if (!function_exists('crmCall')) {
+    function crmCall($params, $method)
+    {
+        $url =  env("JI_URL") . "/service/v4_1/rest.php";
+        $jsonEncodedData = json_encode($params);
+        $fields = array(
+            "method" => $method,
+            "input_type" => "JSON",
+            "response_type" => "JSON",
+            "rest_data" => $jsonEncodedData
+        );
+        ob_start();
+        $curl_request = curl_init();
+        curl_setopt($curl_request, CURLOPT_URL, $url);
+        curl_setopt($curl_request, CURLOPT_POST, 1);
+        curl_setopt($curl_request, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
+        curl_setopt($curl_request, CURLOPT_HEADER, 1);
+        curl_setopt($curl_request, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curl_request, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl_request, CURLOPT_FOLLOWLOCATION, 0);
+        curl_setopt($curl_request, CURLOPT_POSTFIELDS, $fields);
+        $result = curl_exec($curl_request);
+        $result = explode("\r\n\r\n", $result, 2);
+        curl_close($curl_request);
+        $response = json_decode($result[1]);
+        ob_end_flush();
+        return $response;
+    }
+}
+
+if (!function_exists('crmLoginParams')) {
+    function crmLoginParams($username, $password)
+    {
+        return  [
+            "user_auth" => [
+                "user_name" => $username,
+                "password" => md5($password),
+                "version" => "1"
+            ],
+            "application_name" => "JI",
+            "name_value_list" => [],
+        ];
+    }
+}
+
+if (!function_exists('crmLoginParams')) {
+    function crmLoginParams($username, $password)
+    {
+        return  [
+            "user_auth" => [
+                "user_name" => $username,
+                "password" => md5($password),
+                "version" => "1"
+            ],
+            "application_name" => "JI",
+            "name_value_list" => [],
+        ];
+    }
+}
+
+if (!function_exists('putAuthSessions')) {
+    function putAuthSessions($user)
+    {
+        Session::put('auth', true);
+        Session::put('user', $user);
+    }
+}
+
+if (!function_exists('forgetAuthSessions')) {
+    function forgetAuthSessions($request)
+    {
+        $request->session()->forget('auth');
+        $request->session()->forget('user');
+        $request->session()->invalidate();
     }
 }

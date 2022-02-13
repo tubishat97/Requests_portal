@@ -32,7 +32,7 @@ class RequestController extends Controller
         $validations = [
             'fullname' => 'required',
             'national' => 'required|min:10',
-            'birthdate' => 'required|date',
+            'date_of_occurrence' => 'required|date',
             'type' => 'required',
             'description' => 'required',
         ];
@@ -72,7 +72,7 @@ class RequestController extends Controller
         $validations = [
             'fullname' => 'required',
             'national' => 'required|min:10',
-            'birthdate' => 'required|date',
+            'date_of_occurrence' => 'required|date',
             'type' => 'required',
             'description' => 'required',
         ];

@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
+use stdClass;
 
 class AuthController extends Controller
 {
@@ -26,21 +25,36 @@ class AuthController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        // Attempt to log the user in
-        if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
-            return redirect()->intended(route('admin.home'));
+        try {
+            $response = crmCall(crmLoginParams($request->username, $request->password), 'login');
+
+            $user = new stdClass();
+            $user->crm_user_id = $response->name_value_list->user_id->value;
+            $user->name = $response->name_value_list->user_name->value;
+            $user->user_name = $response->name_value_list->user_name->value;
+            $user->session_id = $response->id;
+
+            if ($user && $user->crm_user_id) {
+                putAuthSessions($user);
+            }
+            
+        } catch (\Exception $e) {
+            forgetAuthSessions($request);
+
+            $errors = [
+                'username' => 'username or password is incorrect',
+            ];
+
+            return redirect()->back()->withInput($request->only('username', 'remember'))->withErrors($errors);
         }
 
-        $errors = [
-            'username' => 'username or password is incorrect',
-        ];
-        return redirect()->back()->withInput($request->only('username', 'remember'))->withErrors($errors);
+        return redirect()->intended(route('admin.home'));
     }
 
     public function logout(Request $request)
     {
-        auth::logout();
-        $request->session()->invalidate();
+        forgetAuthSessions($request);
+
         return redirect(route('admin.login_form'));
     }
 }
