@@ -37,7 +37,7 @@ class AuthController extends Controller
             if ($user && $user->crm_user_id) {
                 putAuthSessions($user);
             }
-            
+
         } catch (\Exception $e) {
             forgetAuthSessions($request);
 

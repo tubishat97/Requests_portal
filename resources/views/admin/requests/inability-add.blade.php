@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="{{ asset('plugins/summernote/dist/summernote-bs4.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/toastr-master/build/toastr.css') }}">
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
 @endpush
 
 <div class="container-fluid">
@@ -53,7 +52,6 @@
                     <form enctype="multipart/form-data" method="POST" action="{{ route('admin.request.inability.store') }}">
                         @csrf
                         <div class="row">
-
                             <!-- LEFT COLUMN -->
                             <div class="col-sm-12">
                                 <h4 class="sub-title"><b>{{ __('admin-content.basic-information') }}</b></h4>
@@ -76,11 +74,10 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="date_of_occurrence">{{ __('admin-content.date_of_occurrence') }}<span
+                                            <label for="date_of_occurrence">{{ __('admin-content.national id') }}<span
                                                 class="text-red">*</span></label>
                                             <input type="date" class="form-control datetimepicker-input" id="date_of_occurrence"
                                                 name="date_of_occurrence" data-toggle="datetimepicker" data-target="#to" value="">
@@ -92,23 +89,7 @@
                                             @enderror
                                         </div>
                                     </div>
-
-
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>{{ __('admin-content.loan-types') }}<span
-                                                    class="text-red">*</span></label>
-                                            <select class="form-control" name="type" id="loanTypes">
-                                                @foreach ($loanTypes as $key => $type)
-                                                <option value="{{ $key }}">{{ $type }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">{{
                                                 __('admin-content.reason') }}<span
@@ -116,6 +97,34 @@
                                             <textarea type="text" name="reason" required
                                                 class="form-control"></textarea>
                                             <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>{{ __('admin-content.loan-types') }}</label>
+                                        <div class="repeater">
+                                            <div data-repeater-list="loans">
+                                                <div data-repeater-item class="row mb-2">
+                                                        <div class="form-group col-md-6">
+                                                            <select class="form-control" name="type" id="loanTypes">
+                                                                <option value="" disabled>Select type</option>
+                                                                @foreach ($loanTypes as $key => $type)
+                                                                <option value="{{ $key }}">{{ $type }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    <div class="form-group col-md-3">
+                                                        <input type="number" name="amount"  placeholder="Amount" class="form-control">
+                                                    </div>
+                                                    <button data-repeater-delete type="button"
+                                                        class="btn btn-danger btn-icon ml-2"><i
+                                                            class="ik ik-trash-2"></i></button>
+                                                </div>
+                                            </div>
+                                            <button data-repeater-create type="button"
+                                                class="btn btn-success btn-icon ml-2 mb-2"><i
+                                                    class="ik ik-plus"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +233,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="loan_repayment">{{ __('admin-content.loan_repayment_schedule') }}<span
@@ -288,6 +296,19 @@
     $(document).ready(function () {
         $('.select2').select2();
     });
+
+    $('.repeater').repeater({
+            initEmpty: true,
+            show: function () {
+                $(this).slideDown();
+            },
+            hide: function (deleteElement) {
+                if (confirm('Are you sure you want to delete this element?')) {
+                    $(this).slideUp(deleteElement);
+                }
+            },
+            isFirstItemUndeletable: true
+        });
 </script>
 @endpush
 @endsection

@@ -120,3 +120,27 @@ if (!function_exists('forgetAuthSessions')) {
         $request->session()->invalidate();
     }
 }
+
+if (!function_exists('getUploadedDocs')) {
+    function getUploadedDocs($request)
+    {
+        $docs = $request->all();
+
+        $result = [];
+
+        foreach ($docs as $key => $doc) {
+            if ($request->hasFile($key)) {
+
+                $result[] = [
+                    'file' => $doc,
+                    'key' => $key,
+                    'description' => 'test'
+                ];
+
+                continue;
+            }
+        }
+
+        return $result;
+    }
+}
