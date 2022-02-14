@@ -176,8 +176,8 @@ class RequestController extends Controller
 
                 $attachment_id = $document->id;
 
-                move_uploaded_file($doc['file'], "../../../JI_new/upload/" . $attachment_id);
-                $contents = file_get_contents("../../../JI_new/upload/" . $attachment_id);
+                move_uploaded_file($doc['file'], "../../../../JI_new/upload/" . $attachment_id);
+                $contents = file_get_contents("../../../../JI_new/upload/" . $attachment_id);
 
                 $set_document_revision_parameters = array(
                     //session id
