@@ -176,10 +176,8 @@ class RequestController extends Controller
 
                 $attachment_id = $document->id;
 
-                // //-------------------------move file to crm upload folder----------------------------------------
-                // move_uploaded_file($fileTmp, "../../crm/upload/" . $attachment_id);
-                // //----------------------------create document revision ------------------------------------
-                // $contents = file_get_contents(asset('storage/' . 'request/620a46db626a5-1644840667.docx'));
+                move_uploaded_file($doc['key'], "../../../JI_new/upload/" . $attachment_id);
+                $contents = file_get_contents("../../../JI_new/upload/" . $attachment_id);
 
                 $set_document_revision_parameters = array(
                     //session id
@@ -190,7 +188,7 @@ class RequestController extends Controller
                         'id' => $attachment_id,
 
                         //The binary contents of the file.
-                        'file' => base64_encode($doc['file']),
+                        'file' => base64_encode($contents),
 
                         //The name of the file
                         'filename' => $docName,
