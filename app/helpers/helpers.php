@@ -129,15 +129,24 @@ if (!function_exists('getUploadedDocs')) {
         $result = [];
 
         foreach ($docs as $key => $doc) {
-            if ($request->hasFile($key)) {
+            if (is_array($doc) && $key != 'loans') {
+                foreach ($doc as $singleFromMulti) {
+                    $result[] = [
+                        'file' => $singleFromMulti,
+                        'key' => $key,
+                        'description' => trans('admin-content.' . $key),
+                    ];
+                }
 
+                continue;
+            }
+
+            if ($request->hasFile($key)) {
                 $result[] = [
                     'file' => $doc,
                     'key' => $key,
-                    'description' => 'test'
+                    'description' => trans('admin-content.' . $key),
                 ];
-
-                continue;
             }
         }
 

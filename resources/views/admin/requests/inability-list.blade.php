@@ -50,35 +50,23 @@
                             <tr>
                                 <th>{{ __('#')}}</th>
                                 <th>{{ __('Full name')}}</th>
-                                <th>{{ __('Phone Number')}}</th>
-                                <th>{{ __('Email')}}</th>
-                                <th>{{ __('Customer status')}}</th>
-                                <th class="nosort" style="text-align: center;">{{ __('Action')}}</th>
+                                <th>{{ __('National ID')}}</th>
+                                <th>{{ __('Date of occurrence')}}</th>
+                                <th>{{ __('Status')}}</th>
+                                <th>{{ __('Type')}}</th>
+                                {{-- <th class="nosort" style="text-align: center;">{{ __('Action')}}</th> --}}
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $key => $item)
+                            @foreach ($requests as $key => $request)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>
-                                    <img src="{{ asset(isset($item->profile->image) ? 'storage/' . $item->profile->image : 'img/user.jpg') }}"
-                                        class="table-user-thumb" alt="" style="float: left;width: 45px;height: 45px;">
-                                    <div style="padding-left:10px;float: left;">
-                                        @if(isset($item->profile->fullname)) {{$item->profile->fullname}} @else  {{ 'This customer need to update his profile'}} @endif
-                                        <br>
-                                        <small>Registration Date: {{ $item->created_at }}</small>
-                                    </div>
-                                </td>
-                                <td>{{ $item->username }}</td>
-                                <td>{{ isset($item->profile->email) ? $item->profile->email : '---'  }}</td>
-                                <td>
-                                    @if ($item->profile->is_active)
-                                    <span class="badge badge-success">{{ __('Activated')}}</span>
-                                    @else
-                                    <span class="badge badge-danger">{{ __('Blocked')}}</span>
-                                    @endif
-                                </td>
-                                <td>
+                                <td>{{ $request->name_value_list->name->value }}</td>
+                                <td>{{ $request->name_value_list->national_id->value }}</td>
+                                <td>{{ $request->name_value_list->date_of_occurrence->value }}</td>
+                                <td>{{ $request->name_value_list->status->value }}</td>
+                                <td>{{ $request->name_value_list->type->value }}</td>
+                                {{-- <td>
                                     <div class="table-actions">
                                         <a href="{{route('admin.customer.show', $item->id)}}"><i
                                                 class="ik ik-eye text-blue"></i></a>
@@ -90,7 +78,7 @@
                                                 class="ik ik-trash-2 f-16 text-red"></i>
                                         </a>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                             @endforeach
                         </tbody>

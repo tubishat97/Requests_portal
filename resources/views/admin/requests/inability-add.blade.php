@@ -74,10 +74,11 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="date_of_occurrence">{{ __('admin-content.national id') }}<span
+                                            <label for="date_of_occurrence">{{ __('admin-content.date_of_occurrence') }}<span
                                                 class="text-red">*</span></label>
                                             <input type="date" class="form-control datetimepicker-input" id="date_of_occurrence"
                                                 name="date_of_occurrence" data-toggle="datetimepicker" data-target="#to" value="">
@@ -100,12 +101,14 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label>{{ __('admin-content.loan-types') }}</label>
                                         <div class="repeater">
                                             <div data-repeater-list="loans">
                                                 <div data-repeater-item class="row mb-2">
+
                                                         <div class="form-group col-md-6">
                                                             <select class="form-control" name="type" id="loanTypes">
                                                                 <option value="" disabled>Select type</option>
@@ -117,6 +120,7 @@
                                                     <div class="form-group col-md-3">
                                                         <input type="number" name="amount"  placeholder="Amount" class="form-control">
                                                     </div>
+
                                                     <button data-repeater-delete type="button"
                                                         class="btn btn-danger btn-icon ml-2"><i
                                                             class="ik ik-trash-2"></i></button>
@@ -136,7 +140,7 @@
                                             <label for="an_official_letter_to_report_the_claim_by_the_bank_indicating_the_profession_of_the_borrower">{{ __('admin-content.an_official_letter_to_report_the_claim_by_the_bank_indicating_the_profession_of_the_borrower') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="an_official_letter_to_report_the_claim_by_the_bank_indicating_the_profession_of_the_borrower" id="image" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -152,7 +156,7 @@
                                             <label for="image">{{ __('admin-content.a_certified_copy_of_the_family_book_passport_or_civil_status_id') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="a_certified_copy_of_the_family_book_passport_or_civil_status_id" id="a_certified_copy_of_the_family_book_passport_or_civil_status_id" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -170,7 +174,7 @@
                                             <label for="an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities">{{ __('admin-content.an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="an_original_detailed_medical_report" id="an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -186,7 +190,7 @@
                                             <label for="image">{{ __('admin-content.decision_of_the_social_security_committee_or_the_district_medical_committee') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="decision_of_the_social_security" id="image" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -204,7 +208,7 @@
                                             <label for="all_necessary_reports_of_disability">{{ __('admin-content.all_necessary_reports_of_disability') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="all_necessary_reports_of_disability" id="image" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -217,10 +221,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="statement_of_account">{{ __('admin-content.a_statement_of_account_for_the_borrower_showing_the_balance_of_the_loan_when_the_claim_occurs') }}<span
+                                            <label for="statement_of_account">{{ __('admin-content.statement_of_account') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="statement_of_account" id="statement_of_account" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -235,10 +239,10 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="loan_repayment">{{ __('admin-content.loan_repayment_schedule') }}<span
+                                            <label for="loan_repayment">{{ __('admin-content.loan_repayment') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="loan_repayment" id="loan_repayment" class="file-upload-default"
-                                                accept="image/*">
+                                                accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -251,9 +255,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="other">{{ __('admin-content.any_other_necessary_documents_required_by_the_company') }}</label>
+                                            <label for="other">{{ __('admin-content.other') }}</label>
                                             <input type="file" name="other[]" id="other" multiple
-                                                class="file-upload-default" accept="image/*">
+                                                class="file-upload-default" accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">

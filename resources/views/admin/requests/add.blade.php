@@ -188,7 +188,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="image">{{ __('admin-content.a_copy_of_a_notification_of_the_event_of_death_in_which_the_main_cause_of_death_and_the_circumstances_surrounding_it_are_mentioned') }}<span
+                                            <label for="image">{{ __('admin-content.copy_of_a_notification') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="copy_of_a_notification" id="image" class="file-upload-default"
                                                 accept="*">
@@ -206,7 +206,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="original_medical_report">{{ __('admin-content.an_original_medical_report_showing_the_cause_of_death') }}<span
+                                            <label for="original_medical_report">{{ __('admin-content.original_medical_report') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="original_medical_report" id="image" class="file-upload-default"
                                                 accept="*">
@@ -240,7 +240,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="statement_of_account">{{ __('admin-content.a_statement_of_account_for_the_borrower_showing_the_balance_of_the_loan_when_the_claim_occurs') }}<span
+                                            <label for="statement_of_account">{{ __('admin-content.statement_of_account') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="statement_of_account" id="statement_of_account" class="file-upload-default"
                                                 accept="*">
@@ -275,7 +275,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="other">{{ __('admin-content.any_other_necessary_documents_required_by_the_company') }}</label>
+                                            <label for="other">{{ __('admin-content.other') }}</label>
                                             <input type="file" name="other[]" id="other" multiple
                                                 class="file-upload-default" accept="*">
                                             <div class="input-group col-xs-12">
