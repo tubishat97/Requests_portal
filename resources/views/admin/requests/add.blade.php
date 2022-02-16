@@ -222,9 +222,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="police_report">{{ __('admin-content.police_report_in_case_of_death_due_to_accident') }}<span
+                                            <label for="police_report_in_case_of_death_due_to_accident">{{ __('admin-content.police_report_in_case_of_death_due_to_accident') }}<span
                                                     class="text-red">*</span></label>
-                                            <input type="file" name="police_report" id="image" class="file-upload-default"
+                                            <input type="file" name="police_report_in_case_of_death_due_to_accident" id="image" class="file-upload-default"
                                                 accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
@@ -256,7 +256,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="loan_repayment">{{ __('admin-content.loan_repayment_schedule') }}<span
+                                            <label for="loan_repayment">{{ __('admin-content.loan_repayment') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="loan_repayment" id="loan_repayment" class="file-upload-default"
                                                 accept="*">

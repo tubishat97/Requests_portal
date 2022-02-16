@@ -171,9 +171,9 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities">{{ __('admin-content.an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities') }}<span
+                                            <label for="an_original_detailed_medical_report">{{ __('admin-content.an_original_detailed_medical_report') }}<span
                                                     class="text-red">*</span></label>
-                                            <input type="file" name="an_original_detailed_medical_report" id="an_original_detailed_medical_report_on_the_state_of_disability_indicating_the_reason_for_the_disability_its_date_and_the_circumstances_surrounding_it_from_the_official_competent_medical_authorities" class="file-upload-default"
+                                            <input type="file" name="an_original_detailed_medical_report" id="an_original_detailed_medical_report" class="file-upload-default"
                                                 accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
@@ -187,9 +187,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="image">{{ __('admin-content.decision_of_the_social_security_committee_or_the_district_medical_committee') }}<span
+                                            <label for="image">{{ __('admin-content.decision_of_the_social_security') }}<span
                                                     class="text-red">*</span></label>
-                                            <input type="file" name="decision_of_the_social_security" id="image" class="file-upload-default"
+                                            <input type="file" name="decision_of_the_social_security" id="decision_of_the_social_security" class="file-upload-default"
                                                 accept="*">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">

@@ -134,7 +134,7 @@ if (!function_exists('getUploadedDocs')) {
                     $result[] = [
                         'file' => $singleFromMulti,
                         'key' => $key,
-                        'description' => trans('admin-content.' . $key),
+                        'description' => trans('admin-content.' . $key, [], 'ar'),
                     ];
                 }
 
@@ -145,7 +145,7 @@ if (!function_exists('getUploadedDocs')) {
                 $result[] = [
                     'file' => $doc,
                     'key' => $key,
-                    'description' => trans('admin-content.' . $key),
+                    'description' => trans('admin-content.' . $key, [], 'ar'),
                 ];
             }
         }

@@ -213,7 +213,7 @@ class RequestController extends Controller
                 "module_name" => "STS_Claiming_Loans_Documents",
                 //Record attributes
                 "name_value_list" => array(
-                    array("name" => "document_name", "value" => $doc['key']),
+                    array("name" => "document_name", "value" => $doc['description']),
                     array("name" => "description", "value" => $doc['description']),
                     array("name" => "uploadfile", "value" => $doc['key']),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
