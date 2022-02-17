@@ -233,7 +233,7 @@ class RequestController extends Controller
 
             ;
 
-            if(file_exists($doc['file']->getClientOriginalName()))
+            if(file_exists($file))
 {
    dd("file uploaded to temp dir");
 }
