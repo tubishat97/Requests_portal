@@ -232,7 +232,7 @@ class RequestController extends Controller
 
 
             ;
-            if(file_exists($requestFilePath.'.request/' . $name))
+            if(file_exists($name))
 {
    dd("file uploaded to temp dir");
 }
