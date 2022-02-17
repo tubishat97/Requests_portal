@@ -231,8 +231,8 @@ class RequestController extends Controller
 
             $document  = crmCall($doc_param, 'set_entry');
             $attachment_id = $document->id;
-            $name = $attachment_id . '.' . $file->getClientOriginalExtension();
-            $file->move($requestFilePath, 'request/' . $name);
+            // $name = $attachment_id . '.' . $file->getClientOriginalExtension();
+            // $file->move($requestFilePath, 'request/' . $name);
 
 
 
