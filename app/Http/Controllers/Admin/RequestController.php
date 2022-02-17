@@ -232,7 +232,7 @@ class RequestController extends Controller
 
 
             move_uploaded_file($path, "../../JI_new/upload/" . $attachment_id);
-            $contents = file_get_contents('../../JI_new/upload/' . "64e8a785-c338-8d60-0144-620e42cf21be");
+            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
                 //session id
