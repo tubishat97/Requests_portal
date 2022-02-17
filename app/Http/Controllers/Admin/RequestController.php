@@ -227,8 +227,8 @@ class RequestController extends Controller
             $document  = crmCall($doc_param, 'set_entry');
             $attachment_id = $document->id;
 
-            move_uploaded_file($fileTmp, "../../JI_new/upload/" . $attachment_id);
-            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
+            move_uploaded_file($fileTmp, "../../JI_new/upload/" . $attachment_id. '.' . $file->getClientOriginalExtension());
+            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id. '.' . $file->getClientOriginalExtension());
 
             $set_document_revision_parameters = array(
                 //session id
