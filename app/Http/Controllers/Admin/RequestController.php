@@ -228,17 +228,17 @@ class RequestController extends Controller
             $attachment_id = $document->id;
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
-            // // $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
-            // // dd(public_path("storage\\request\\" . $name));
+            move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id);
+            //----------------------------create document revision ------------------------------------
+            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
-            // dd(realpath('/var/www/html/JI_new/upload/'));
+            if (move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id)) {
+                dd("upload complete");
+            } else {
+                dd("move_uploaded_file failed");
+            }
 
-if (move_uploaded_file(public_path("storage/request/" . $name), "/var/www/html/JI_new/upload/")) {
-    dd("upload complete");
-} else {
-    dd("move_uploaded_file failed");
-}
             $contents = file_get_contents('/var/www/html/JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
