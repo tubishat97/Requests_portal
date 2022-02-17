@@ -213,6 +213,8 @@ class RequestController extends Controller
                 //Record attributes
                 "name_value_list" => array(
                     array("name" => "document_name", "value" => $fileName),
+                    array("name" => "file_ext", "value" => $file->getClientOriginalExtension()),
+                    array("name" => "file_mime_type", "value" => $file->getClientMimeType()),
                     array("name" => "description", "value" => $doc['description']),
                     array("name" => "uploadfile", "value" => $file_split[0]),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
