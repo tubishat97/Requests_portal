@@ -231,8 +231,8 @@ class RequestController extends Controller
             $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
 
-            move_uploaded_file($path, "../../../JI_new/upload/" . $attachment_id);
-            $contents = file_get_contents('../../../JI_new/upload/' . $attachment_id);
+            move_uploaded_file($path, "https://demo.sts-cloud.com/JI_new/upload/" . $attachment_id);
+            $contents = file_get_contents('https://demo.sts-cloud.com/JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
                 //session id
