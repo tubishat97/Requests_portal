@@ -232,7 +232,7 @@ class RequestController extends Controller
 
             // // dd(public_path("storage\\request\\" . $name));
 
-            // dd(realpath('../../../JI_new/upload/'));
+            dd(realpath('/var/www/html/JI_new/upload/'));
 
 if (move_uploaded_file(public_path("storage/request/" . $name), "/var/www/html/JI_new/upload/" . $attachment_id)) {
     dd("upload complete");
