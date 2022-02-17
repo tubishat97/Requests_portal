@@ -214,7 +214,7 @@ class RequestController extends Controller
                 "name_value_list" => array(
                     array("name" => "document_name", "value" => $fileName),
                     array("name" => "description", "value" => $doc['description']),
-                    array("name" => "uploadfile", "value" => $file_split),
+                    array("name" => "uploadfile", "value" => $file_split[0]),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
                     array("name" => "assigned_user_id", "value" => $user->crm_user_id),
                     array("name" => "revision", "value" => "1"),
