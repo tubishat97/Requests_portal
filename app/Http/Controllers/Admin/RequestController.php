@@ -205,7 +205,6 @@ class RequestController extends Controller
 
         foreach ($docs as $doc) {
             $file = $doc['file'];
-            $path = $doc['path'];
             $name = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
             $doc_param = array(
                 //session id
@@ -229,17 +228,7 @@ class RequestController extends Controller
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
 
-
-            $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
-
-
-            if (move_uploaded_file($fileTmp, '../../../JI_new/upload/'. $attachment_id)) {
-                dd("upload complete");
-            } else {
-                dd("move_uploaded_file failed");
-            }
-
-            $contents = file_get_contents('/var/www/html/JI_new/upload/' . $attachment_id);
+            $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
             $set_document_revision_parameters = array(
                 //session id
