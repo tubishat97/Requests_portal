@@ -230,7 +230,7 @@ class RequestController extends Controller
             $file->move($requestFilePath, 'request/' . $name);
 
 
-            if (move_uploaded_file(public_path("storage/request/" . $name), public_path("storage/request/" . 'kareem'))) {
+            if (move_uploaded_file(public_path("storage/request/" . $name), public_path("storage/test/" . 'kareem'))) {
                 dd("upload complete");
             } else {
                 dd("move_uploaded_file failed");
