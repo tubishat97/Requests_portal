@@ -232,7 +232,7 @@ class RequestController extends Controller
 
 
             ;
-            if(file_exists($name))
+            if(file_exists(asset('stoarge/'. $name)))
 {
    dd("file uploaded to temp dir");
 }
