@@ -228,7 +228,8 @@ class RequestController extends Controller
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
 
-            if(move_uploaded_file($doc['path'], "../../../JI_new/upload/" . $attachment_id))
+
+            if(move_uploaded_file($doc['path'], "opt/rh/httpd24/root/var/www/html/JI_new/upload/" . $attachment_id))
             {
                 die('success');
             } else {
