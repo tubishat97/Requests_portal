@@ -230,7 +230,7 @@ class RequestController extends Controller
             $file->move($requestFilePath, 'request/' . $name);
             // $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
-            dd(asset('stoarge/'. $name));
+            dd(asset('stoarge/request/' .$name));
 
             if(file_exists(asset('stoarge/'. $name)))
 {
