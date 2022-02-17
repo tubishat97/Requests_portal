@@ -203,6 +203,10 @@ class RequestController extends Controller
             File::makeDirectory($requestFilePath, 0777, true);
         }
 
+        $fileName = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'];
+        $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
+        $file_split = (explode('.', $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name']));
+
         foreach ($docs as $doc) {
             $file = $doc['file'];
             $name = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
@@ -213,7 +217,7 @@ class RequestController extends Controller
                 "module_name" => "STS_Claiming_Loans_Documents",
                 //Record attributes
                 "name_value_list" => array(
-                    array("name" => "document_name", "value" => $doc['description']),
+                    array("name" => "document_name", "value" => $fileName),
                     array("name" => "description", "value" => $doc['description']),
                     array("name" => "uploadfile", "value" => $doc['key']),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
@@ -222,12 +226,17 @@ class RequestController extends Controller
                 ),
             );
 
-            $document  = crmCall($doc_param, 'set_entry');
 
+
+            $document  = crmCall($doc_param, 'set_entry');
             $attachment_id = $document->id;
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
 
+
+
+            //-------------------------move file to crm upload folder----------------------------------------
+            move_uploaded_file($fileTmp, "../../crm/JI_new/" . $attachment_id);
 
             if(move_uploaded_file($doc['path'], "opt/rh/httpd24/root/var/www/html/JI_new/upload/" . $attachment_id))
             {
@@ -252,7 +261,7 @@ class RequestController extends Controller
                     'file' => base64_encode($contents),
 
                     //The name of the file
-                    'filename' => $name . ' ' . "[$user->name]",
+                    'filename' => $fileName,
 
                     //The revision number
                     'revision' => '1',
