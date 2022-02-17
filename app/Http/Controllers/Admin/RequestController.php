@@ -197,12 +197,7 @@ class RequestController extends Controller
 
             crmCall($loan_items_param, 'set_entry');
         }
-
-        $requestFilePath = public_path('storage/request');
-        if (!File::exists($requestFilePath)) {
-            File::makeDirectory($requestFilePath, 0777, true);
-        }
-
+        
         foreach ($docs as $doc) {
             $file = $doc['file'];
             $fileName = $file->getClientOriginalName();
@@ -227,8 +222,8 @@ class RequestController extends Controller
             $document  = crmCall($doc_param, 'set_entry');
             $attachment_id = $document->id;
 
-            move_uploaded_file($fileTmp, "../../JI_new/upload/" . $attachment_id. '.' . $file->getClientOriginalExtension());
-            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id. '.' . $file->getClientOriginalExtension());
+            move_uploaded_file($fileTmp, "../../JI_new/upload/" . $attachment_id);
+            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
                 //session id
