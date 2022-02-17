@@ -204,7 +204,6 @@ class RequestController extends Controller
             $fileTmp = $file->getPathName();
             $file_split = (explode('.', $fileName));
 
-
             $doc_param = array(
                 //session id
                 "session" => $user->session_id,
@@ -248,7 +247,9 @@ class RequestController extends Controller
                 ),
             );
 
-            crmCall($set_document_revision_parameters, 'set_document_revision');
+            $result = crmCall($set_document_revision_parameters, 'set_document_revision');
+
+            dd($result);
         }
     }
 }
