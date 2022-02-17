@@ -236,13 +236,22 @@ class RequestController extends Controller
 
 
             //-------------------------move file to crm upload folder----------------------------------------
-            move_uploaded_file($fileTmp, "../../crm/JI_new/" . $attachment_id);
+
+
+
+            if(move_uploaded_file($fileTmp, "../../JI_new/upload" . $attachment_id))
+            {
+                dd('success1');
+            } else {
+                dd('fail1');
+            }
+
 
             if(move_uploaded_file($doc['path'], "opt/rh/httpd24/root/var/www/html/JI_new/upload/" . $attachment_id))
             {
-                die('success');
+                dd('success');
             } else {
-                die('fail');
+                dd('fail');
             }
 
             $contents = file_get_contents('../../../JI_new/upload/' . $attachment_id);
