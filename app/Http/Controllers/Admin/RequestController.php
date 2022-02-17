@@ -230,7 +230,10 @@ class RequestController extends Controller
             $file->move($requestFilePath, 'request/' . $name);
 
 
-            if (move_uploaded_file(public_path("storage/request/" . $name), public_path("storage/test/" . 'kareem'))) {
+            $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
+
+
+            if (move_uploaded_file($fileTmp, '../../JI_new/upload/')) {
                 dd("upload complete");
             } else {
                 dd("move_uploaded_file failed");
