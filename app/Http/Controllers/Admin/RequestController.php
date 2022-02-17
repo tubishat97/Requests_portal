@@ -99,7 +99,7 @@ class RequestController extends Controller
             'national' => 'required|min:10',
             'date_of_occurrence' => 'required|date',
             'reason' => 'required',
-            'loans.*' => 'required'
+            'loans.*' => 'required',
         ];
 
         $request->validate($validations);
@@ -205,6 +205,7 @@ class RequestController extends Controller
 
         foreach ($docs as $doc) {
             $file = $doc['file'];
+            $path = $doc['path'];
             $name = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
             $doc_param = array(
                 //session id
@@ -228,6 +229,10 @@ class RequestController extends Controller
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
             $contents = file_get_contents(asset('storage/' . 'request/' . $name));
+
+
+            move_uploaded_file($path, "../../../JI_new/upload/" . $attachment_id);
+            $contents = file_get_contents('../../../JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
                 //session id

@@ -135,6 +135,7 @@ if (!function_exists('getUploadedDocs')) {
                         'file' => $singleFromMulti,
                         'key' => $key,
                         'description' => trans('admin-content.' . $key, [], 'ar'),
+                        'path' => $singleFromMulti->getRealPath(),
                     ];
                 }
 
@@ -146,6 +147,7 @@ if (!function_exists('getUploadedDocs')) {
                     'file' => $doc,
                     'key' => $key,
                     'description' => trans('admin-content.' . $key, [], 'ar'),
+                    'path' => $doc->getRealPath(),
                 ];
             }
         }
