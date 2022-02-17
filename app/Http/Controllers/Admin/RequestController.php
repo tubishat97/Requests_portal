@@ -230,8 +230,6 @@ class RequestController extends Controller
             $file->move($requestFilePath, 'request/' . $name);
 
             move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id);
-            //----------------------------create document revision ------------------------------------
-            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
             if (move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id)) {
                 dd("upload complete");
