@@ -203,7 +203,7 @@ class RequestController extends Controller
             File::makeDirectory($requestFilePath, 0777, true);
         }
 
-
+        dd($docs);
         foreach ($docs as $doc) {
             $file = $doc['file'];
             // $fileName = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'];
