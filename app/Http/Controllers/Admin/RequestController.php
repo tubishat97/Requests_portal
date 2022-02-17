@@ -209,6 +209,14 @@ class RequestController extends Controller
             $fileTmp = $_FILES[$doc['key']]['tmp_name'];
             $fileName = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'];
             $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
+
+            dd([
+                $_FILES[$doc['key']]['name'],
+
+                $_FILES[$doc['key']]['tmp_name'],
+                $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'],
+                $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'],
+            ]);
             $name = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
             $doc_param = array(
                 //session id
