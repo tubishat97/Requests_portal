@@ -205,12 +205,9 @@ class RequestController extends Controller
 
         foreach ($docs as $doc) {
             $file = $doc['file'];
-            $fileName = $_FILES[$doc['key']]['name'];
-            $fileTmp = $_FILES[$doc['key']]['tmp_name'];
             $fileName = $file->getClientOriginalName();
             $fileTmp = $file->getPathName();
 
-            $name = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
             $doc_param = array(
                 //session id
                 "session" => $user->session_id,
@@ -227,37 +224,11 @@ class RequestController extends Controller
                 ),
             );
 
-
-
             $document  = crmCall($doc_param, 'set_entry');
             $attachment_id = $document->id;
-            // $name = $attachment_id . '.' . $file->getClientOriginalExtension();
-            // $file->move($requestFilePath, 'request/' . $name);
 
-
-
-            //-------------------------move file to crm upload folder----------------------------------------
-
-
-
-            if(move_uploaded_file($fileTmp, "../../JI_new/upload" . $attachment_id))
-            {
-                dd('success1');
-            } else {
-                dd('fail1');
-            }
-
-
-            if(move_uploaded_file($doc['path'], "opt/rh/httpd24/root/var/www/html/JI_new/upload/" . $attachment_id))
-            {
-                dd('success');
-            } else {
-                dd('fail');
-            }
-
-            $contents = file_get_contents('../../../JI_new/upload/' . $attachment_id);
-
-            // $contents = file_get_contents(asset('storage/' . 'request/' . $name));
+            move_uploaded_file($fileTmp, "../../JI_new/upload" . $attachment_id);
+            $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
                 //session id
