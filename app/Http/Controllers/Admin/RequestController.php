@@ -228,10 +228,10 @@ class RequestController extends Controller
             $attachment_id = $document->id;
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
-            $contents = file_get_contents(asset('storage/' . 'request/' . $name));
+            // $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
 
-            move_uploaded_file($path, "../../JI_new/upload/" . $attachment_id);
+            move_uploaded_file(asset('storage/' . 'request/' . $name), "../../JI_new/upload/" . $attachment_id);
             $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
