@@ -229,9 +229,8 @@ class RequestController extends Controller
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
 
-            move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id);
 
-            if (move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id)) {
+            if (move_uploaded_file(public_path("storage/request/" . $name), "/var/www/html/JI_new/upload/" . $attachment_id)) {
                 dd("upload complete");
             } else {
                 dd("move_uploaded_file failed");
