@@ -197,11 +197,13 @@ class RequestController extends Controller
 
             crmCall($loan_items_param, 'set_entry');
         }
-        
+
         foreach ($docs as $doc) {
             $file = $doc['file'];
             $fileName = $file->getClientOriginalName();
             $fileTmp = $file->getPathName();
+            $file_split = (explode('.', $fileName));
+
 
             $doc_param = array(
                 //session id
@@ -212,7 +214,7 @@ class RequestController extends Controller
                 "name_value_list" => array(
                     array("name" => "document_name", "value" => $fileName),
                     array("name" => "description", "value" => $doc['description']),
-                    array("name" => "uploadfile", "value" => $doc['key']),
+                    array("name" => "uploadfile", "value" => $file_split),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
                     array("name" => "assigned_user_id", "value" => $user->crm_user_id),
                     array("name" => "revision", "value" => "1"),
