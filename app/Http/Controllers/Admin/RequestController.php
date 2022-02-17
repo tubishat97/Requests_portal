@@ -230,8 +230,8 @@ class RequestController extends Controller
             $file->move($requestFilePath, 'request/' . $name);
             // $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
+            dd(asset('stoarge/'. $name));
 
-            ;
             if(file_exists(asset('stoarge/'. $name)))
 {
    dd("file uploaded to temp dir");
