@@ -203,12 +203,14 @@ class RequestController extends Controller
             File::makeDirectory($requestFilePath, 0777, true);
         }
 
-        $fileName = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'];
-        $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
-        $file_split = (explode('.', $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name']));
 
         foreach ($docs as $doc) {
             $file = $doc['file'];
+            // $fileName = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'];
+            // $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
+            dd($_FILES);
+            $fileName = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['name'];
+            $fileTmp = $_FILES['a_certified_copy_of_the_family_book_and_civil_status_id']['tmp_name'];
             $name = uniqid() . '-' . time() . '.' . $file->getClientOriginalExtension();
             $doc_param = array(
                 //session id
