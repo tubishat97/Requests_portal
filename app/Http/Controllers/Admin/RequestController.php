@@ -228,27 +228,13 @@ class RequestController extends Controller
             $attachment_id = $document->id;
             $name = $attachment_id . '.' . $file->getClientOriginalExtension();
             $file->move($requestFilePath, 'request/' . $name);
-            // $contents = file_get_contents(asset('storage/' . 'request/' . $name));
 
 
-
-            if(file_exists(asset('storage/' . 'request/' . $name)))
-{
-   dd("file uploaded to temp dir");
-}
-else
-{
-   dd("file upload failed");
-}
-
-if(move_uploaded_file(asset('storage/' . 'request/' . $name), "../../JI_new/upload/" . $attachment_id))
-{
-dd("upload complete");
-}
-else
-{
-dd("move_uploaded_file failed");
-}
+            if (move_uploaded_file(public_path("storage\\request\\" . $name), "../../JI_new/upload/" . $attachment_id)) {
+                dd("upload complete");
+            } else {
+                dd("move_uploaded_file failed");
+            }
             $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
 
             $set_document_revision_parameters = array(
