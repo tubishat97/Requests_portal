@@ -232,16 +232,7 @@ class RequestController extends Controller
 
             // dd(public_path("storage\\request\\" . $name));
 
-            if(file_exists(public_path("storage/request/" . $name)))
-{
-   dd("file uploaded to temp dir");
-}
-else
-{
-   dd("file upload failed");
-}
-
-if (move_uploaded_file(public_path("storage/request/" . $name), "../../JI_new/upload/" . $attachment_id)) {
+if (move_uploaded_file(public_path("storage/request/" . $name), "../../../JI_new/upload/" . $attachment_id)) {
     dd("upload complete");
 } else {
     dd("move_uploaded_file failed");
