@@ -247,9 +247,7 @@ class RequestController extends Controller
                 ),
             );
 
-            $result = crmCall($set_document_revision_parameters, 'set_document_revision');
-
-            dd($result);
+            crmCall($set_document_revision_parameters, 'set_document_revision');
         }
     }
 }
