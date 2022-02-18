@@ -211,11 +211,11 @@ class RequestController extends Controller
                 "module_name" => "STS_Claiming_Loans_Documents",
                 //Record attributes
                 "name_value_list" => array(
-                    array("name" => "document_name", "value" => $fileName),
+                    array("name" => "document_name", "value" => $file_split[0]),
                     array("name" => "file_ext", "value" => $file->getClientOriginalExtension()),
                     array("name" => "file_mime_type", "value" => $file->getClientMimeType()),
                     array("name" => "description", "value" => $doc['description']),
-                    array("name" => "uploadfile", "value" => $file_split[0]),
+                    array("name" => "uploadfile", "value" => $fileName),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
                     array("name" => "assigned_user_id", "value" => $user->crm_user_id),
                     array("name" => "revision", "value" => "1"),
