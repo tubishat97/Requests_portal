@@ -112,14 +112,14 @@
 
                                                         <div class="form-group col-md-6">
                                                             <select class="form-control" name="type" id="loanTypes">
-                                                                <option value="" disabled>Select type</option>
+                                                                <option value="" disabled>{{ __('admin-content.select-type') }}</option>
                                                                 @foreach ($loanTypes as $key => $type)
                                                                 <option value="{{ $key }}">{{ $type }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
                                                     <div class="form-group col-md-3">
-                                                        <input type="number" name="amount"  placeholder="Amount" class="form-control">
+                                                        <input type="number" name="amount"  placeholder="{{ __('admin-content.amount') }}" class="form-control">
                                                     </div>
 
                                                     <button data-repeater-delete type="button"

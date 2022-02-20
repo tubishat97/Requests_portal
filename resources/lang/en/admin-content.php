@@ -56,5 +56,7 @@ return [
     'action' => 'Action',
     'type' => 'Type',
     'notes' => 'Notes',
-    'claim_name' => 'Claim #'
+    'claim_name' => 'Claim #',
+    'amount' => 'Amount',
+    'select-type' => 'Select type'
 ];

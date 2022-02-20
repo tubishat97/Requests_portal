@@ -48,5 +48,7 @@ return [
     'action' => 'الاجرائات',
     'type' => 'النوع',
     'show' => 'عرض',
-    'claim_name' => 'رقم الوثيقة'
+    'claim_name' => 'رقم الوثيقة',
+    'amount' => 'القيمة',
+    'select-type' => 'اختر نوع'
 ];
