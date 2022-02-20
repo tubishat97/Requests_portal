@@ -213,6 +213,7 @@ class RequestController extends Controller
                     array("name" => "document_name", "value" => $file_split[0]),
                     array("name" => "file_ext", "value" => $file->getClientOriginalExtension()),
                     array("name" => "file_mime_type", "value" => $file->getClientMimeType()),
+                    array("name" => "doc_key_c", "value" => $doc['key']),
                     array("name" => "description", "value" => $doc['description']),
                     array("name" => "uploadfile", "value" => $fileName),
                     array("name" => "sts_claimi9ee4g_loans_ida", "value" => $response->id),
@@ -399,6 +400,7 @@ class RequestController extends Controller
                     'value' => array(
                         'id',
                         'document_name',
+                        'doc_key_c',
                         'uploadfile',
                         'created_by_name',
                         'created_by',
