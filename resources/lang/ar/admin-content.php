@@ -51,5 +51,6 @@ return [
     'claim_name' => 'رقم الوثيقة',
     'amount' => 'القيمة',
     'select-type' => 'اختر نوع',
-    'logout' => 'تسجيل الخروج'
+    'logout' => 'تسجيل الخروج',
+    'download' => 'تنزيل'
 ];

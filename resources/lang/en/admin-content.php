@@ -59,5 +59,6 @@ return [
     'claim_name' => 'Claim #',
     'amount' => 'Amount',
     'select-type' => 'Select type',
-    'logout' => 'Logout'
+    'logout' => 'Logout',
+    'download' => 'Download'
 ];

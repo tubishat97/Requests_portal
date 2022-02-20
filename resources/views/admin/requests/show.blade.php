@@ -95,6 +95,13 @@
                             <td>{{ __('admin-content.national-id') }}</td>
                             <td>{{ $requestObj->national_id->value }}</td>
                         </tr>
+
+                        @foreach ($documents as $item)
+                        <tr>
+                            <td>{{ __('admin-content.'. $item->doc_key_c->value) }}</td>
+                            <td><a target="_blank" href="https://demo.sts-cloud.com/JI_new/index.php?entryPoint=download&id={{$item->id->value}}&type=STS_Claiming_Loans_Documents">{{ __('admin-content.download') }}</td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
