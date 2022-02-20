@@ -4,6 +4,7 @@
 <head>
     <!-- initiate head with meta tags, css and script -->
     @include('include.head')
+    <link rel="stylesheet" href="{{ asset('plugins/toastr-master/build/toastr.css') }}">
 </head>
 
 <body id="app">
@@ -33,6 +34,7 @@
 
     <!-- initiate scripts-->
     @include('include.script')
+    <script src="{{ asset('plugins/toastr-master/toastr.js') }}"></script>
 </body>
 
 </html>

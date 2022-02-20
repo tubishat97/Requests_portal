@@ -18,17 +18,7 @@ Route::namespace('Admin')->name('admin.')->group(function () {
         Route::get('/inability-requests/add', 'RequestController@addInabilityRequest')->name('request.inability.add');
         Route::post('/inability-requests/store', 'RequestController@storeInabilityRequest')->name('request.inability.store');
 
-        // Route::get('/profile', 'UserController@profile')->name('profile');
-        // Route::post('/profile/update', 'UserController@updateProfile')->name('profile.update');
-
-        // Route::resource('customer', 'CustomerController')->name('*', 'customer');
-
-        // Route::resource('flight', 'FlightController')->name('*', 'flight');
-
-        // Route::resource('airport', 'AirportController')->name('*', 'airport');
-
-        // Route::resource('airplane', 'AirplaneController')->name('*', 'airplane');
-
-        // Route::resource('airline', 'AirlineController')->name('*', 'airline');
+        Route::get('/requests/show/notes/{request}', 'RequestController@showNotes')->name('request.show.notes');
+        Route::post('/requests/show/notes/add', 'RequestController@addNotes')->name('request.show.notes.add');
     });
 });

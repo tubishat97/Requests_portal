@@ -4,7 +4,7 @@
             {{ __('Copyright © ') . date('Y')}}
         </span>
         <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">
-            {{ __('Developed by Abulkareem Tubishat')}}
+            {{ __('Developed by STS')}}
         </span>
     </div>
 </footer>

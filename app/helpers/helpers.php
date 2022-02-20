@@ -155,3 +155,18 @@ if (!function_exists('getUploadedDocs')) {
         return $result;
     }
 }
+
+if (!function_exists('array_sort_by_column')) {
+    function array_sort_by_column(&$array, $direction = SORT_ASC)
+    {
+        $reference_array = [];
+
+        foreach ($array as $key => $row) {
+            $reference_array[$key] = $row->date_entered;
+        }
+
+        array_multisort($reference_array, $direction, $array);
+
+        return $reference_array;
+    }
+}

@@ -41,4 +41,6 @@ return [
     'remember_me' => 'تذكرني',
     'password' => 'كلمة المرور',
     'login' => 'دخول',
+    'notes' => 'ملاحظات',
+    'type-and-enter' => 'اكتب ...'
 ];

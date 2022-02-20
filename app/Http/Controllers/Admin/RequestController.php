@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-
 class RequestController extends Controller
 {
     public function deathRequestIndex(Request $request)
@@ -248,6 +246,123 @@ class RequestController extends Controller
             );
 
             crmCall($set_document_revision_parameters, 'set_document_revision');
+        }
+    }
+
+    public function showNotes($request)
+    {
+        $user = session()->get('user');
+
+        $params = array(
+            //session id
+            'session' => $user->session_id,
+            //The name of the module from which to retrieve records
+            'module_name' => 'STS_Claiming_Loans',
+            //The id of the record to fetch
+            'id' => $request,
+            //Optional. The list of fields to be returned in the results
+            'select_fields' => array(
+                'id',
+                'type',
+                'status',
+                'claim_name_c',
+                'claim_number_c',
+                'reject_reason_c',
+            ),
+
+            //A list of link names and the fields to be returned for each link name
+            'link_name_to_fields_array' => array(
+                array(
+                    'name' => 'sts_claiming_loans_sts_claiming_loans_notes_1',
+                    'value' => array(
+                        'id',
+                        'description',
+                        'date_entered',
+                        'created_by',
+                        'note',
+                    ),
+                ),
+                array(
+                    'name' => 'sts_claiming_loans_sts_claiming_loans_documents',
+                    'value' => array(
+                        'id',
+                        'document_name',
+                        'uploadfile',
+                        'created_by_name',
+                        'created_by',
+                        'date_entered',
+                        'description',
+                    ),
+                ),
+            ),
+        );
+
+        $response  = crmCall($params, 'get_entry');
+
+        if (!empty($response->name)) {
+            if ($response->name === "Invalid Session ID") {
+                forgetAuthSessions($request);
+                return redirect(route('admin.login_form'));
+            }
+        }
+
+        $notes = [];
+
+        if ($response->relationship_list && is_array($response->relationship_list)) {
+            foreach ($response->relationship_list as $relationships) {
+                foreach ($relationships as $relationship) {
+                    switch ($relationship->name) {
+                        case 'sts_claiming_loans_sts_claiming_loans_notes_1':
+                            $notes = $relationship->records;
+                            break;
+                    }
+                }
+            }
+        }
+
+        $document = $response->entry_list;
+        $document = $document[0]->name_value_list;
+
+        array_sort_by_column($notes);
+
+        return view('admin.notes.show', compact('notes', 'document', 'user'));
+    }
+
+    public function addNotes(Request $request)
+    {
+        $user = session()->get('user');
+
+        try {
+            $params = array(
+                //session id
+                "session" => $user->session_id,
+                //The name of the module
+                "module_name" => "STS_Claiming_Loans_Notes",
+                //Record attributes
+                "name_value_list" => array(
+                    array("name" => "sts_claimi7e7dg_loans_ida", "value" => $request->beanID),
+                    array("name" => "name", "value" => "View"),
+                    array("name" => "note", "value" => $request->content),
+                ),
+            );
+
+            $response = crmCall($params, 'set_entry');
+
+            if (!empty($response->name)) {
+                if ($response->name === "Invalid Session ID") {
+                    forgetAuthSessions($request);
+                    return redirect(route('admin.login_form'));
+                }
+            }
+
+            return response()->json([
+                'message' =>  __('system-messages.update'),
+                'success' => 1,
+                'data' => $request->content,
+            ]);
+        } catch (\Exception $e) {
+            $bug = $e->getMessage();
+            return redirect()->back()->with('error', $bug);
         }
     }
 }

@@ -49,4 +49,6 @@ return [
     "all_necessary_reports_of_disability" => "All necessary reports of disability",
     "police_report_in_case_of_inability_due_to_accident" => 'Police report in case of inability due to accident',
     'remember_me' => 'Remember me',
+    'notes' => 'notes',
+    'type-and-enter' => 'Type and enter'
 ];
