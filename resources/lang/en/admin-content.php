@@ -55,5 +55,6 @@ return [
     'full-name' => 'Full name',
     'action' => 'Action',
     'type' => 'Type',
-    'notes' => 'Notes'
+    'notes' => 'Notes',
+    'claim_name' => 'Claim #'
 ];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 class RequestController extends Controller
 {
     public function deathRequestIndex(Request $request)
@@ -140,7 +141,7 @@ class RequestController extends Controller
             //The maximum number of results to return.
             'max_results' => '',
             //To exclude deleted records
-            'deleted' => '0',
+            'deleted' => 0,
             //If only records marked as favorites should be returned.
             'Favorites' => false,
         );
@@ -320,12 +321,12 @@ class RequestController extends Controller
             }
         }
 
-        $document = $response->entry_list;
-        $document = $document[0]->name_value_list;
+        $requestObj = $response->entry_list;
+        $requestObj = $requestObj[0]->name_value_list;
 
         array_sort_by_column($notes);
 
-        return view('admin.notes.show', compact('notes', 'document', 'user'));
+        return view('admin.notes.show', compact('notes', 'requestObj', 'user'));
     }
 
     public function addNotes(Request $request)
@@ -364,5 +365,82 @@ class RequestController extends Controller
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);
         }
+    }
+
+
+    public function show($request)
+    {
+        $user = session()->get('user');
+
+        $params = array(
+            //session id
+            'session' => $user->session_id,
+            //The name of the module from which to retrieve records
+            'module_name' => 'STS_Claiming_Loans',
+            //The id of the record to fetch
+            'id' => $request,
+            //Optional. The list of fields to be returned in the results
+            'select_fields' => array(),
+
+            //A list of link names and the fields to be returned for each link name
+            'link_name_to_fields_array' => array(
+                array(
+                    'name' => 'sts_claiming_loans_sts_claiming_loans_notes_1',
+                    'value' => array(
+                        'id',
+                        'description',
+                        'date_entered',
+                        'created_by',
+                        'note',
+                    ),
+                ),
+                array(
+                    'name' => 'sts_claiming_loans_sts_claiming_loans_documents',
+                    'value' => array(
+                        'id',
+                        'document_name',
+                        'uploadfile',
+                        'created_by_name',
+                        'created_by',
+                        'date_entered',
+                        'description',
+                    ),
+                ),
+            ),
+        );
+
+        $response  = crmCall($params, 'get_entry');
+
+        if (!empty($response->name)) {
+            if ($response->name === "Invalid Session ID") {
+                forgetAuthSessions($request);
+                return redirect(route('admin.login_form'));
+            }
+        }
+
+        $notes = [];
+        $documents = [];
+
+        if ($response->relationship_list && is_array($response->relationship_list)) {
+            foreach ($response->relationship_list as $relationships) {
+                foreach ($relationships as $relationship) {
+                    switch ($relationship->name) {
+                        case 'sts_claiming_loans_sts_claiming_loans_notes_1':
+                            $notes = $relationship->records;
+                            break;
+                        case 'sts_claiming_loans_sts_claiming_loans_documents':
+                            $documents = $relationship->records;
+                            break;
+                    }
+                }
+            }
+        }
+
+        $requestObj = $response->entry_list;
+        $requestObj = $requestObj[0]->name_value_list;
+
+        array_sort_by_column($notes);
+
+        return view('admin.requests.show', compact('notes', 'requestObj', 'user', 'documents'));
     }
 }

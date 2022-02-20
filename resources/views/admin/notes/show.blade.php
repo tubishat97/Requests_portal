@@ -2,7 +2,7 @@
 @section('content')
 <!-- push external head elements to head -->
 @push('head')
-<title>{{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}</title>
+<title>{{' [' . $requestObj->claim_name_c->value . '] '. __('admin-content.notes') }}</title>
 <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css') }}">
@@ -18,7 +18,7 @@
                 <div class="page-header-title">
                     <i class="fas fa-question bg-blue"></i>
                     <div class="d-inline">
-                        <h5>{{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}</h5>
+                        <h5>{{' [' . $requestObj->claim_name_c->value . '] '. __('admin-content.notes') }}</h5>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('admin.home') }}"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}
+                        <li class="breadcrumb-item active" aria-current="page">{{' [' . $requestObj->claim_name_c->value . '] '. __('admin-content.notes') }}
                         </li>
                     </ol>
                 </nav>
@@ -40,7 +40,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3>
-                        {{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}
+                        {{' [' . $requestObj->claim_name_c->value . '] '. __('admin-content.notes') }}
                     </h3>
                 </div>
                 <div id="chat-box" class="card-body chat-box scrollable card-300">
@@ -76,12 +76,12 @@
                         @endforeach
                     </ul>
                 </div>
-                @if($document->status->value != 'proceed')
+                @if($requestObj->status->value != 'proceed')
                 <div class="card-footer chat-footer">
                     <form id="sendMsg">
                         @csrf
                         <div class="input-wrap">
-                            <input type="hidden" name="beanID" value="{{ $document->id->value }}">
+                            <input type="hidden" name="beanID" value="{{ $requestObj->id->value }}">
                             <input type="text" id="contentMsg" name="content" placeholder="{{__('admin-content.type-and-enter')}}" class="form-control" required/>
                         </div>
                         <button type="submit" class="btn btn-icon btn-blue" style="margin-top: 10px;"><i class="fa fa-paper-plane"></i></button>

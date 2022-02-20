@@ -20,5 +20,7 @@ Route::namespace('Admin')->name('admin.')->group(function () {
 
         Route::get('/requests/show/notes/{request}', 'RequestController@showNotes')->name('request.show.notes');
         Route::post('/requests/show/notes/add', 'RequestController@addNotes')->name('request.show.notes.add');
+
+        Route::get('/requests/show/{request}', 'RequestController@show')->name('request.show');
     });
 });

@@ -68,8 +68,7 @@
                                 <td>{{ $request->name_value_list->type->value }}</td>
                                 <td>
                                     <div class="table-actions">
-                                        {{-- <a href="{{route('admin.request.show.notes', $request->id)}}"><i
-                                                class="ik ik-eye text-blue"></i></a> --}}
+                                        <a href="{{route('admin.request.show', $request->id)}}" data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.show') }}"><i class="ik ik-eye text-blue"></i></a>
                                         <a href="{{route('admin.request.show.notes', $request->id)}}"
                                             data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.notes') }}"><i class="ik ik-edit-2 text-green"></i></a>
                                     </div>
