@@ -2,7 +2,7 @@
 @section('content')
 <!-- push external head elements to head -->
 @push('head')
-<title>{{ __('admin-content.show') . ' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}</title>
+<title>{{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}</title>
 <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css') }}">
@@ -18,7 +18,7 @@
                 <div class="page-header-title">
                     <i class="fas fa-question bg-blue"></i>
                     <div class="d-inline">
-                        <h5>{{ __('admin-content.show') . ' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}</h5>
+                        <h5>{{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}</h5>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('admin.home') }}"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('admin-content.show') . ' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}
+                        <li class="breadcrumb-item active" aria-current="page">{{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}
                         </li>
                     </ol>
                 </nav>
@@ -40,7 +40,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3>
-                        {{ __('admin-content.show') . ' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}
+                        {{' [' . $document->claim_name_c->value . '] '. __('admin-content.notes') }}
                     </h3>
                 </div>
                 <div id="chat-box" class="card-body chat-box scrollable card-300">
@@ -112,8 +112,6 @@
 
     $('#sendMsg').on('submit', function (e) {
             e.preventDefault();
-
-            console.log('hi');
             var formData = new FormData(this)
             $.ajax({
                 type: 'POST',
@@ -130,14 +128,11 @@
                                 <div class="box bg-light-inverse">${response.data}</div>
                                 <br>
                             </div>
-
                             <div class="chat-time">a minute ago</div>
                         </li>`;
-
                         $("#contentMsg").val('');
                         $(".chat-list").append(html);
-
-                       $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                        $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
                         toastr.success(`${response.message}`);
                 } else {
                     toastr.error(response.error);

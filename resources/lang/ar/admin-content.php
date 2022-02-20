@@ -42,5 +42,10 @@ return [
     'password' => 'كلمة المرور',
     'login' => 'دخول',
     'notes' => 'ملاحظات',
-    'type-and-enter' => 'اكتب ...'
+    'type-and-enter' => 'اكتب ...',
+    'status' => 'الحالة',
+    'full-name' => 'الاسم الكامل',
+    'action' => 'الاجرائات',
+    'type' => 'النوع',
+    'show' => 'عرض'
 ];

@@ -49,12 +49,12 @@
                         <thead>
                             <tr>
                                 <th>{{ __('#')}}</th>
-                                <th>{{ __('Full name')}}</th>
-                                <th>{{ __('National ID')}}</th>
-                                <th>{{ __('Date of occurrence')}}</th>
-                                <th>{{ __('Status')}}</th>
-                                <th>{{ __('Type')}}</th>
-                                <th class="nosort" style="text-align: center;">{{ __('Action')}}</th>
+                                <th>{{ __('admin-content.full-name')}}</th>
+                                <th>{{ __('admin-content.national-id')}}</th>
+                                <th>{{ __('admin-content.date_of_occurrence')}}</th>
+                                <th>{{ __('admin-content.status')}}</th>
+                                <th>{{ __('admin-content.type')}}</th>
+                                <th class="nosort" style="text-align: center;">{{ __('admin-content.action')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,8 +70,8 @@
                                     <div class="table-actions">
                                         {{-- <a href="{{route('admin.request.show.notes', $request->id)}}"><i
                                                 class="ik ik-eye text-blue"></i></a> --}}
-                                        <a href="{{route('admin.request.show.notes', $request->id)}}"><i
-                                                class="ik ik-edit-2 text-green"></i></a>
+                                        <a href="{{route('admin.request.show.notes', $request->id)}}"
+                                            data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.notes') }}"><i class="ik ik-edit-2 text-green"></i></a>
                                     </div>
                                 </td>
                             </tr>

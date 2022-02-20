@@ -50,5 +50,10 @@ return [
     "police_report_in_case_of_inability_due_to_accident" => 'Police report in case of inability due to accident',
     'remember_me' => 'Remember me',
     'notes' => 'notes',
-    'type-and-enter' => 'Type and enter'
+    'type-and-enter' => 'Type and enter',
+    'status' => 'Status',
+    'full-name' => 'Full name',
+    'action' => 'Action',
+    'type' => 'Type',
+    'notes' => 'Notes'
 ];
