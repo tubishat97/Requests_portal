@@ -54,7 +54,7 @@
                                 <th>{{ __('Date of occurrence')}}</th>
                                 <th>{{ __('Status')}}</th>
                                 <th>{{ __('Type')}}</th>
-                                {{-- <th class="nosort" style="text-align: center;">{{ __('Action')}}</th> --}}
+                                <th class="nosort" style="text-align: center;">{{ __('Action')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,19 +66,12 @@
                                 <td>{{ $request->name_value_list->date_of_occurrence->value }}</td>
                                 <td>{{ $request->name_value_list->status->value }}</td>
                                 <td>{{ $request->name_value_list->type->value }}</td>
-                                {{-- <td>
+                                <td>
                                     <div class="table-actions">
-                                        <a href="{{route('admin.customer.show', $item->id)}}"><i
-                                                class="ik ik-eye text-blue"></i></a>
-                                        <a href="{{route('admin.customer.show', $item->id)}}"><i
-                                                class="ik ik-edit-2 text-green"></i></a>
-                                        <a href=""
-                                            onclick="setRoute('{{ $item->id }}', '{{ route('admin.customer.destroy', $item) }}')"
-                                            data-toggle="modal" data-target="#exampleModalCenter"> <i
-                                                class="ik ik-trash-2 f-16 text-red"></i>
-                                        </a>
+                                        <a href="{{route('admin.request.show.notes', $request->id)}}"><i
+                                            class="ik ik-edit-2 text-green"></i></a>
                                     </div>
-                                </td> --}}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
