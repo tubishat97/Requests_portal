@@ -97,14 +97,6 @@
                         </tr>
                     </tbody>
                 </table>
-
-                    <table class="table table-striped table-product">
-                        <tbody>
-                            @foreach ($collection as $item)
-
-                            @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
