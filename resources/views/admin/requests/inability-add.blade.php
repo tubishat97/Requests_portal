@@ -140,7 +140,7 @@
                                             <label for="an_official_letter_to_report_the_claim_by_the_bank_indicating_the_profession_of_the_borrower">{{ __('admin-content.an_official_letter_to_report_the_claim_by_the_bank_indicating_the_profession_of_the_borrower') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="an_official_letter_to_report_the_claim_by_the_bank_indicating_the_profession_of_the_borrower" id="image" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -156,7 +156,7 @@
                                             <label for="image">{{ __('admin-content.a_certified_copy_of_the_family_book_passport_or_civil_status_id') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="a_certified_copy_of_the_family_book_passport_or_civil_status_id" id="a_certified_copy_of_the_family_book_passport_or_civil_status_id" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -174,7 +174,7 @@
                                             <label for="an_original_detailed_medical_report">{{ __('admin-content.an_original_detailed_medical_report') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="an_original_detailed_medical_report" id="an_original_detailed_medical_report" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -190,7 +190,7 @@
                                             <label for="image">{{ __('admin-content.decision_of_the_social_security') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="decision_of_the_social_security" id="decision_of_the_social_security" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -208,7 +208,7 @@
                                             <label for="all_necessary_reports_of_disability">{{ __('admin-content.all_necessary_reports_of_disability') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="all_necessary_reports_of_disability" id="image" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -224,7 +224,7 @@
                                             <label for="statement_of_account">{{ __('admin-content.statement_of_account') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="statement_of_account" id="statement_of_account" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -242,7 +242,7 @@
                                             <label for="loan_repayment">{{ __('admin-content.loan_repayment') }}<span
                                                     class="text-red">*</span></label>
                                             <input type="file" name="loan_repayment" id="loan_repayment" class="file-upload-default"
-                                                accept="*">
+                                                accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
@@ -257,7 +257,7 @@
                                         <div class="form-group">
                                             <label for="other">{{ __('admin-content.other') }}</label>
                                             <input type="file" name="other[]" id="other" multiple
-                                                class="file-upload-default" accept="*">
+                                                class="file-upload-default" accept="*" required>
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info">
                                                 <span class="input-group-append">
