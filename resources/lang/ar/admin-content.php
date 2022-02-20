@@ -50,5 +50,6 @@ return [
     'show' => 'عرض',
     'claim_name' => 'رقم الوثيقة',
     'amount' => 'القيمة',
-    'select-type' => 'اختر نوع'
+    'select-type' => 'اختر نوع',
+    'logout' => 'تسجيل الخروج'
 ];

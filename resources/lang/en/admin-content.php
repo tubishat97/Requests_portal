@@ -58,5 +58,6 @@ return [
     'notes' => 'Notes',
     'claim_name' => 'Claim #',
     'amount' => 'Amount',
-    'select-type' => 'Select type'
+    'select-type' => 'Select type',
+    'logout' => 'Logout'
 ];

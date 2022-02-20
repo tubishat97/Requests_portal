@@ -28,7 +28,7 @@
                         {{-- <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="ik ik-user dropdown-icon"></i> {{ __('Profile')}}</a> --}}
                         <a class="dropdown-item" href="{{ route('admin.logout') }}">
                             <i class="ik ik-power dropdown-icon"></i>
-                            {{ __('Logout')}}
+                            {{ __('admin-content.logout')}}
                         </a>
                     </div>
                 </div>
