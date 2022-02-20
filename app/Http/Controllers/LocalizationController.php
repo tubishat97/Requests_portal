@@ -10,6 +10,6 @@ class LocalizationController extends Controller
     {
         App::setLocale($locale);
         session()->put('locale', $locale);
-        return redirect()->to($locale . '/admin');
+        return redirect()->to($locale . '/');
     }
 }
