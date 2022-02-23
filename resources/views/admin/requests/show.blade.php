@@ -99,7 +99,7 @@
                         @foreach ($documents as $item)
                         <tr>
                             <td>{{ __('admin-content.'. $item->doc_key_c->value) }}</td>
-                            <td><a target="_blank" href="https://demo.sts-cloud.com/JI_new/index.php?entryPoint=download&id={{$item->id->value}}&type=STS_Claiming_Loans_Documents">{{ __('admin-content.download') }}</td>
+                            <td><a target="_blank" href="https://demo.sts-cloud.com/JI_new/index.php?entryPoint=download&id={{$item->id->value}}&type=STS_Claiming_Loans_Documents" style="color: blue">{{ strtoupper(__('admin-content.download') )}} <i class="fas fa-download"></i></td>
                         </tr>
                         @endforeach
                     </tbody>

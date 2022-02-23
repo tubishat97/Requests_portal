@@ -44,7 +44,8 @@ class RequestController extends Controller
             'national' => 'required|min:10',
             'date_of_occurrence' => 'required|date',
             'reason' => 'required',
-            'loans.*' => 'required'
+            'loans.type.*' => 'required',
+            'loans.amount.*' => 'required'
         ];
 
         $request->validate($validations);
@@ -313,10 +314,8 @@ class RequestController extends Controller
         if ($response->relationship_list && is_array($response->relationship_list)) {
             foreach ($response->relationship_list as $relationships) {
                 foreach ($relationships as $relationship) {
-                    switch ($relationship->name) {
-                        case 'sts_claiming_loans_sts_claiming_loans_notes_1':
-                            $notes = $relationship->records;
-                            break;
+                    if ($relationship->name == 'sts_claiming_loans_sts_claiming_loans_notes_1') {
+                        $notes = $relationship->records;
                     }
                 }
             }

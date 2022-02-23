@@ -110,7 +110,7 @@
                                                 <div data-repeater-item class="row mb-2">
 
                                                         <div class="form-group col-md-6">
-                                                            <select class="form-control" name="type" id="loanTypes">
+                                                            <select class="form-control" name="type" id="loanTypes" required>
                                                                 <option value="" disabled>{{ __('admin-content.select-type') }}</option>
                                                                 @foreach ($loanTypes as $key => $type)
                                                                 <option value="{{ $key }}">{{ $type }}</option>
@@ -118,7 +118,7 @@
                                                             </select>
                                                         </div>
                                                     <div class="form-group col-md-3">
-                                                        <input type="number" name="amount"  placeholder="{{ __('admin-content.amount') }}" class="form-control">
+                                                        <input type="number" name="amount"  placeholder="{{ __('admin-content.amount') }}" class="form-control" required>
                                                     </div>
 
                                                     <button data-repeater-delete type="button"
@@ -302,7 +302,7 @@
     });
 
     $('.repeater').repeater({
-            initEmpty: true,
+            initEmpty: false,
             show: function () {
                 $(this).slideDown();
             },
@@ -312,7 +312,7 @@
                 }
             },
             isFirstItemUndeletable: true
-        });
+    });
 </script>
 @endpush
 @endsection
