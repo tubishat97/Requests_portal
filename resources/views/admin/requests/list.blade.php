@@ -38,12 +38,6 @@
         <!-- end message area-->
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" style="display: inline-block;">
-                    <h3>{{ __('admin-content.'.$type.'-requests') }}</h3>
-                    <div class="right" style="float: right;">
-                        <a href="{{ route('admin.request.death.add') }}" class="btn btn-primary js-dynamic-enable">{{ __('admin-content.add') }}</a>
-                    </div>
-                </div>
                 <div class="card-body table-responsive">
                     <table id="data_table" class="table">
                         <thead>
@@ -69,11 +63,8 @@
                                 <td>
                                     <div class="table-actions">
                                         <a href="{{route('admin.request.show', $request->id)}}" data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.show') }}"><i class="ik ik-eye text-blue"></i></a>
-
-                                        @if ($request->name_value_list->status->value === 'provide_feedback')
                                         <a href="{{route('admin.request.show.notes', $request->id)}}"
                                             data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.add-feedback') }}"><i class="ik ik-edit-2 text-green"></i></a>
-                                        @endif
                                     </div>
                                 </td>
                             </tr>

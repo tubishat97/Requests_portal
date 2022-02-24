@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-
+    @if ($requestObj->status->value === 'provide_feedback')
     <div class="row" id="target">
         <div class="col-md-12">
             <div class="card">
@@ -149,6 +149,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 <!-- push external js -->
