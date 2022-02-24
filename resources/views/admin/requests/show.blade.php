@@ -77,11 +77,11 @@
                         </tr>
                         <tr>
                             <td>{{ __('admin-content.type') }}</td>
-                            <td>{{ $requestObj->type->value }}</td>
+                            <td>{{ strtoupper($requestObj->type->value) }}</td>
                         </tr>
                         <tr>
                             <td>{{ __('admin-content.status') }}</td>
-                            <td>{{ $requestObj->status->value }}</td>
+                            <td>{{ strtoupper($requestObj->status->value) }}</td>
                         </tr>
                         <tr>
                             <td>{{ __('admin-content.reason') }}</td>
@@ -95,10 +95,14 @@
                             <td>{{ __('admin-content.national-id') }}</td>
                             <td>{{ $requestObj->national_id->value }}</td>
                         </tr>
+                        <tr>
+                            <td>{{ __('admin-content.date_of_occurrence') }}</td>
+                            <td>{{ $requestObj->date_of_occurrence->value }}</td>
+                        </tr>
 
                         @foreach ($documents as $item)
                         <tr>
-                            <td>{{ __('admin-content.'. $item->doc_key_c->value) }}</td>
+                            <td>{{ Lang::has('admin-content.'. $item->doc_key_c->value) ?  __('admin-content.'. $item->doc_key_c->value) : $item->description->value }}</td>
                             <td><a target="_blank" href="https://demo.sts-cloud.com/JI_new/index.php?entryPoint=download&id={{$item->id->value}}&type=STS_Claiming_Loans_Documents" style="color: blue">{{ strtoupper(__('admin-content.download') )}} <i class="fas fa-download"></i></td>
                         </tr>
                         @endforeach
