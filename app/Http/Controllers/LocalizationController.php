@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App;
+use Illuminate\Support\Facades\App;
 
 class LocalizationController extends Controller
 {

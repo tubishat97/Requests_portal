@@ -6,7 +6,7 @@
 @section('content')
 
 @push('head')
-<title>{{ __('admin-content.death-requests') }}</title>
+<title>{{ __('admin-content.'.$type.'-requests') }}</title>
 @endpush
 
 <div class="container-fluid">
@@ -14,9 +14,9 @@
         <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
-                    <i class="fas fa-bed bg-linkedin"></i>
+                    <i class="fas fa-list bg-linkedin"></i>
                     <div class="d-inline">
-                        <h5>{{ __('admin-content.death-requests') }}</h5>
+                        <h5>{{ __('admin-content.'.$type.'-requests') }}</h5>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('admin.home')}}"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('admin-content.death-requests') }}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('admin-content.'.$type.'-requests') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -39,7 +39,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="display: inline-block;">
-                    <h3>{{ __('admin-content.death-requests') }}</h3>
+                    <h3>{{ __('admin-content.'.$type.'-requests') }}</h3>
                     <div class="right" style="float: right;">
                         <a href="{{ route('admin.request.death.add') }}" class="btn btn-primary js-dynamic-enable">{{ __('admin-content.add') }}</a>
                     </div>
@@ -69,8 +69,11 @@
                                 <td>
                                     <div class="table-actions">
                                         <a href="{{route('admin.request.show', $request->id)}}" data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.show') }}"><i class="ik ik-eye text-blue"></i></a>
+
+                                        @if ($request->name_value_list->status->value === 'provide_feedback')
                                         <a href="{{route('admin.request.show.notes', $request->id)}}"
-                                            data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.notes') }}"><i class="ik ik-edit-2 text-green"></i></a>
+                                            data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.add-feedback') }}"><i class="ik ik-edit-2 text-green"></i></a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

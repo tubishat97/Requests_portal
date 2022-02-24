@@ -52,5 +52,10 @@ return [
     'amount' => 'القيمة',
     'select-type' => 'اختر نوع',
     'logout' => 'تسجيل الخروج',
-    'download' => 'تنزيل'
+    'download' => 'تنزيل',
+    'open-requests' => 'الطلبات المفنوحة',
+    'provide_feedback-requests' => 'تقديم الملاحظات',
+    'proceed-requests' => 'متابعة',
+    'add-requests' => 'اضافة مطالبة',
+    'add-feedback' => 'اضافة تغذية راجعة'
 ];

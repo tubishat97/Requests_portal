@@ -28,9 +28,6 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('admin.home') }}"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('admin.request.death') }}">{{ __('admin-content.death-requests') }}</a>
-                        </li>
                         <li class="breadcrumb-item active" aria-current="page">{{ __('admin-content.add-death-requests')
                             }}
                         </li>

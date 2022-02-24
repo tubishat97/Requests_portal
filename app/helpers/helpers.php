@@ -170,3 +170,34 @@ if (!function_exists('array_sort_by_column')) {
         return $reference_array;
     }
 }
+
+
+if (!function_exists('claimsStatusesArray')) {
+    function claimsStatusesArray()
+    {
+        return [
+            'open',
+            'initiated',
+            'assigned',
+            'undervaluation',
+            'provide_feedback',
+            'above_authority',
+            'proceed',
+            'feedback_provided'
+        ];
+    }
+}
+
+
+if (!function_exists('getClaimStatusCondition')) {
+    function getClaimStatusCondition($type)
+    {
+        $conditionType = [
+            'open' => "sts_claiming_loans.status IN ('initiated', 'assigned', 'undervaluation' , 'above_authority', 'feedback_provided')",
+            'provide_feedback' => "sts_claiming_loans.status = 'provide_feedback'",
+            'proceed' => "sts_claiming_loans.status = 'proceed'"
+        ];
+
+        return $conditionType[$type];
+    }
+}

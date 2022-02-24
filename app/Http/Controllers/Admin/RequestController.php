@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
-    public function deathRequestIndex(Request $request)
+    public function requestIndex(Request $request, $type)
     {
+        if ($type && !in_array($type, claimsStatusesArray())) {
+            abort(404);
+        }
+
+        $condition = getClaimStatusCondition($type);
+
         $user = session()->get('user');
-        $response = $this->getRequestsWhereType($user, 'death');
+        $response = $this->getRequestsWhereStatus($user, $condition);
 
         if (!empty($response->name)) {
             if ($response->name === "Invalid Session ID") {
@@ -21,7 +27,7 @@ class RequestController extends Controller
 
         $requests = $response->entry_list;
 
-        return view('admin.requests.list', compact('requests'));
+        return view('admin.requests.list', compact('requests', 'type'));
     }
 
     public function addDeathRequest(Request $request)
@@ -54,29 +60,11 @@ class RequestController extends Controller
             $user = session()->get('user');
             $this->storeWhereType($user, $request, 'death');
 
-            return redirect()->route('admin.request.death')->with('success', __('system-messages.add'));
+            return redirect()->route('admin.request', 'open')->with('success', __('system-messages.add'));
         } catch (\Exception $e) {
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);
         }
-    }
-
-    public function inabilityRequestIndex(Request $request)
-    {
-        $user = session()->get('user');
-
-        $response = $this->getRequestsWhereType($user, 'inability');
-
-        if (!empty($response->name)) {
-            if ($response->name === "Invalid Session ID") {
-                forgetAuthSessions($request);
-                return redirect(route('admin.login_form'));
-            }
-        }
-
-        $requests = $response->entry_list;
-
-        return view('admin.requests.inability-list', compact('requests'));
     }
 
     public function addInabilityRequest(Request $request)
@@ -107,14 +95,14 @@ class RequestController extends Controller
         try {
             $user = session()->get('user');
             $this->storeWhereType($user, $request, 'inability');
-            return redirect()->route('admin.request.inability')->with('success', __('system-messages.add'));
+            return redirect()->route('admin.request', 'open')->with('success', __('system-messages.add'));
         } catch (\Exception $e) {
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);
         }
     }
 
-    public function getRequestsWhereType($user, $type)
+    public function getRequestsWhereStatus($user, $condition)
     {
         $params = array(
             //session id
@@ -122,7 +110,7 @@ class RequestController extends Controller
             //The name of the module from which to retrieve records
             'module_name' => 'STS_Claiming_Loans',
             //The SQL WHERE clause without the word "where".
-            'query' => "sts_claiming_loans.created_by = '$user->crm_user_id' AND sts_claiming_loans.type = '$type'",
+            'query' => "sts_claiming_loans.created_by = '$user->crm_user_id' AND $condition",
             //The SQL ORDER BY clause without the phrase "order by".
             'order_by' => "date_entered DESC",
             //The record offset from which to start.
@@ -333,8 +321,90 @@ class RequestController extends Controller
     {
         $user = session()->get('user');
 
+        $validations = [
+            'beanID' => 'required',
+            'note' => 'required',
+            'documents.*' => 'required',
+        ];
+
+        $request->validate($validations);
+
         try {
             $params = array(
+                //session id
+                "session" => $user->session_id,
+                //The name of the module from which to retrieve records.
+                "module_name" => "STS_Claiming_Loans",
+                //Record attributes
+                "name_value_list" => array(
+                    array("name" => "id", "value" => $request->beanID),
+                    array("name" => "status", "value" => "feedback_provided"),
+                ),
+            );
+
+            $response = crmCall($params, 'set_entry');
+
+
+            if (!empty($response->name)) {
+                if ($response->name === "Invalid Session ID") {
+                    forgetAuthSessions($request);
+                    return redirect(route('admin.login_form'));
+                }
+            }
+
+            foreach ($request->documents as $file) {
+                $fileName = $file->getClientOriginalName();
+                $fileTmp = $file->getPathName();
+                $file_split = (explode('.', $fileName));
+
+                $doc_param = array(
+                    //session id
+                    "session" => $user->session_id,
+                    //The name of the module
+                    "module_name" => "STS_Claiming_Loans_Documents",
+                    //Record attributes
+                    "name_value_list" => array(
+                        array("name" => "document_name", "value" => $file_split[0]),
+                        array("name" => "file_ext", "value" => $file->getClientOriginalExtension()),
+                        array("name" => "file_mime_type", "value" => $file->getClientMimeType()),
+                        array("name" => "doc_key_c", "value" => 'feedback'),
+                        array("name" => "description", "value" => $request->note),
+                        array("name" => "uploadfile", "value" => $fileName),
+                        array("name" => "sts_claimi9ee4g_loans_ida", "value" => $request->beanID),
+                        array("name" => "assigned_user_id", "value" => $user->crm_user_id),
+                        array("name" => "revision", "value" => "1"),
+                    ),
+                );
+
+                $document  = crmCall($doc_param, 'set_entry');
+                $attachment_id = $document->id;
+
+                move_uploaded_file($fileTmp, "../../JI_new/upload/" . $attachment_id);
+                $contents = file_get_contents('../../JI_new/upload/' . $attachment_id);
+
+                $set_document_revision_parameters = array(
+                    //session id
+                    "session" => $user->session_id,
+                    //The attachment details
+                    "note" => array(
+                        //The ID of the parent document.
+                        'id' => $attachment_id,
+
+                        //The binary contents of the file.
+                        'file' => base64_encode($contents),
+
+                        //The name of the file
+                        'filename' => $fileName,
+
+                        //The revision number
+                        'revision' => '1',
+                    ),
+                );
+
+                crmCall($set_document_revision_parameters, 'set_document_revision');
+            }
+
+            $notes_params = array(
                 //session id
                 "session" => $user->session_id,
                 //The name of the module
@@ -347,7 +417,7 @@ class RequestController extends Controller
                 ),
             );
 
-            $response = crmCall($params, 'set_entry');
+            $response = crmCall($notes_params, 'set_entry');
 
             if (!empty($response->name)) {
                 if ($response->name === "Invalid Session ID") {
@@ -356,11 +426,7 @@ class RequestController extends Controller
                 }
             }
 
-            return response()->json([
-                'message' =>  __('system-messages.update'),
-                'success' => 1,
-                'data' => $request->content,
-            ]);
+            return redirect()->route('admin.request', 'open')->with('success', __('system-messages.add'));
         } catch (\Exception $e) {
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);

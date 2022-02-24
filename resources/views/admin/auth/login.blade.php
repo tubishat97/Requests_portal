@@ -72,7 +72,8 @@
                                 </div>
                             </div>
                             <div class="sign-btn text-center">
-                                <button class="btn btn-custom">{{ __('admin-content.login')}}</button>
+                                <button style="background: linear-gradient(90deg, rgba(9, 9, 121, 1) 23%, rgba(0, 212, 255, 1) 100%);
+                                border-radius: 20px;" class="btn btn-custom">{{ __('admin-content.login')}}</button>
                             </div>
                         </form>
                     </div>

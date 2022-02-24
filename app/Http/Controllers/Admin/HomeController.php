@@ -8,6 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return redirect(route('admin.request.death'));
+        return redirect(route('admin.request', 'open'));
     }
 }

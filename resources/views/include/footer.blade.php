@@ -4,7 +4,7 @@
             {{ __('Copyright © ') . date('Y')}}
         </span>
         <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">
-            {{ __('Developed by STS')}}
+            {{ __('Developed by')}} <a  style="color:skyblue" href="https://www.stsarabia.com/" target="__blank">STS</a>
         </span>
     </div>
 </footer>

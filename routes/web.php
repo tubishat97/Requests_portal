@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/change-language/{lang}/{route}', 'LocalizationController@index')->name('change-language');
 
+
 Route::get('/', function () {
-    return redirect()->route('admin.home');
+    return route('admin.request', 'open');
 });
