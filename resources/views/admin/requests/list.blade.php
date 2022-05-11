@@ -58,8 +58,8 @@
                                 <td>{{ $request->name_value_list->name->value }}</td>
                                 <td>{{ $request->name_value_list->national_id->value }}</td>
                                 <td>{{ $request->name_value_list->date_of_occurrence->value }}</td>
-                                <td>{{ strtoupper($request->name_value_list->status->value) }}</td>
-                                <td>{{ strtoupper($request->name_value_list->type->value) }}</td>
+                                <td>{{ modify($request->name_value_list->status->value) }}</td>
+                                <td>{{ modify($request->name_value_list->type->value) }}</td>
                                 <td>
                                     <div class="table-actions">
                                         <a href="{{route('admin.request.show', $request->id)}}" data-toggle="tooltip" data-placement="top" title="{{ __('admin-content.show') }}"><i class="ik ik-eye text-blue"></i></a>

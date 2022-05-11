@@ -201,3 +201,10 @@ if (!function_exists('getClaimStatusCondition')) {
         return $conditionType[$type];
     }
 }
+
+if (!function_exists('modify')) {
+    function modify($str)
+    {
+        return ucwords(str_replace("_", " ", $str));
+    }
+}

@@ -19,7 +19,7 @@ class RequestController extends Controller
         $response = $this->getRequestsWhereStatus($user, $condition);
 
         if (!empty($response->name)) {
-            if ($response->name === "Invalid Session ID") {
+            if ($response->name === "Invalid Session ID" || $response->name == 'Access Denied') {
                 forgetAuthSessions($request);
                 return redirect(route('admin.login_form'));
             }
@@ -163,7 +163,7 @@ class RequestController extends Controller
         $response = crmCall($params, 'set_entry');
 
         if (!empty($response->name)) {
-            if ($response->name === "Invalid Session ID") {
+            if ($response->name === "Invalid Session ID" || $response->name == 'Access Denied') {
                 forgetAuthSessions($request);
                 return redirect(route('admin.login_form'));
             }
@@ -291,7 +291,7 @@ class RequestController extends Controller
         $response  = crmCall($params, 'get_entry');
 
         if (!empty($response->name)) {
-            if ($response->name === "Invalid Session ID") {
+            if ($response->name === "Invalid Session ID" || $response->name == 'Access Denied') {
                 forgetAuthSessions($request);
                 return redirect(route('admin.login_form'));
             }
@@ -346,7 +346,7 @@ class RequestController extends Controller
 
 
             if (!empty($response->name)) {
-                if ($response->name === "Invalid Session ID") {
+                if ($response->name === "Invalid Session ID" || $response->name == 'Access Denied') {
                     forgetAuthSessions($request);
                     return redirect(route('admin.login_form'));
                 }
@@ -420,7 +420,7 @@ class RequestController extends Controller
             $response = crmCall($notes_params, 'set_entry');
 
             if (!empty($response->name)) {
-                if ($response->name === "Invalid Session ID") {
+                if ($response->name === "Invalid Session ID" || $response->name == 'Access Denied') {
                     forgetAuthSessions($request);
                     return redirect(route('admin.login_form'));
                 }
