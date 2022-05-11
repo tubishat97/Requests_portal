@@ -413,7 +413,7 @@ class RequestController extends Controller
                 "name_value_list" => array(
                     array("name" => "sts_claimi7e7dg_loans_ida", "value" => $request->beanID),
                     array("name" => "name", "value" => "View"),
-                    array("name" => "note", "value" => $request->content),
+                    array("name" => "note", "value" => $request->note),
                 ),
             );
 
