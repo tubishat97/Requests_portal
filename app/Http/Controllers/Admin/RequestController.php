@@ -51,7 +51,8 @@ class RequestController extends Controller
             'date_of_occurrence' => 'required|date',
             'reason' => 'required',
             'loans.type.*' => 'required',
-            'loans.amount.*' => 'required'
+            'loans.amount.*' => 'required',
+            'loans.granting_date.*' => 'required|date'
         ];
 
         $request->validate($validations);
@@ -87,7 +88,9 @@ class RequestController extends Controller
             'national' => 'required|min:10',
             'date_of_occurrence' => 'required|date',
             'reason' => 'required',
-            'loans.*' => 'required',
+            'loans.type.*' => 'required',
+            'loans.amount.*' => 'required',
+            'loans.granting_date.*' => 'required|date'
         ];
 
         $request->validate($validations);
@@ -179,6 +182,7 @@ class RequestController extends Controller
                 "name_value_list" => array(
                     array("name" => "type", "value" => $loan["type"]),
                     array("name" => "amount", "value" => $loan["amount"]),
+                    array("name" => "granting_date_c", "value" => $loan["granting_date"]),
                     array("name" => "sts_claimie1dbg_loans_ida", "value" => $response->id),
                 ),
             );

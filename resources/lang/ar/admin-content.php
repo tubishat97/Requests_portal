@@ -57,5 +57,6 @@ return [
     'provide_feedback-requests' => 'تقديم الملاحظات',
     'proceed-requests' => 'متابعة',
     'add-requests' => 'اضافة مطالبة',
-    'add-feedback' => 'اضافة تغذية راجعة'
+    'add-feedback' => 'اضافة تغذية راجعة',
+    'granting_date' => 'تاريخ المنح'
 ];

@@ -68,6 +68,7 @@ return [
     'add-feedback' => 'Add feedback',
     'documents' => 'Documents',
     'note' => 'Notes',
+    'granting_date' => 'Granting date'
 ];
 
 
