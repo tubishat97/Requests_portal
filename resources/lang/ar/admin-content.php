@@ -58,5 +58,6 @@ return [
     'proceed-requests' => 'متابعة',
     'add-requests' => 'اضافة مطالبة',
     'add-feedback' => 'اضافة تغذية راجعة',
-    'granting_date' => 'تاريخ المنح'
+    'granting_date' => 'تاريخ المنح',
+    'birth_date' => 'تاريخ الميلاد'
 ];

@@ -49,6 +49,7 @@ class RequestController extends Controller
             'fullname' => 'required',
             'national' => 'required|min:10',
             'date_of_occurrence' => 'required|date',
+            'birth_date' => 'required|date',
             'reason' => 'required',
             'loans.type.*' => 'required',
             'loans.amount.*' => 'required',
@@ -157,6 +158,7 @@ class RequestController extends Controller
                 array("name" => "name", "value" => $request->fullname),
                 array("name" => "national_id", "value" => $request->national),
                 array("name" => "date_of_occurrence", "value" => $request->date_of_occurrence),
+                array("name" => "birth_date_c", "value" => $request->birth_date),
                 array("name" => "reason", "value" => $request->reason),
                 array("name" => "type", "value" => $type),
                 array("name" => "status", "value" => "initiated"),
@@ -241,6 +243,30 @@ class RequestController extends Controller
             );
 
             crmCall($set_document_revision_parameters, 'set_document_revision');
+        }
+
+        if ($request->note) {
+            $notes_params = array(
+                //session id
+                "session" => $user->session_id,
+                //The name of the module
+                "module_name" => "STS_Claiming_Loans_Notes",
+                //Record attributes
+                "name_value_list" => array(
+                    array("name" => "sts_claimi7e7dg_loans_ida", "value" => $response->id),
+                    array("name" => "name", "value" => "View"),
+                    array("name" => "note", "value" => $request->note),
+                ),
+            );
+
+            $note = crmCall($notes_params, 'set_entry');
+
+            if (!empty($note->name)) {
+                if ($note->name === "Invalid Session ID" || $note->name == 'Access Denied') {
+                    forgetAuthSessions($request);
+                    return redirect(route('admin.login_form'));
+                }
+            }
         }
     }
 

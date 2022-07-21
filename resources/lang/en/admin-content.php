@@ -68,7 +68,8 @@ return [
     'add-feedback' => 'Add feedback',
     'documents' => 'Documents',
     'note' => 'Notes',
-    'granting_date' => 'Granting date'
+    'granting_date' => 'Granting date',
+    'birth_date' => 'Birth date'
 ];
 
 

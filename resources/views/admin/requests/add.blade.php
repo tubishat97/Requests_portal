@@ -91,9 +91,36 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="birth_date">{{ __('admin-content.birth_date')
+                                                }}<span class="text-red">*</span></label>
+                                            <input type="date" class="form-control datetimepicker-input"
+                                                id="birth_date" name="birth_date"
+                                                data-toggle="datetimepicker" data-target="#to" value="">
+                                            <div class="help-block with-errors"></div>
+                                            @error('birth_date')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label class="form-control-label" for="input-name">{{
                                                 __('admin-content.reason') }}<span class="text-red">*</span></label>
                                             <textarea type="text" name="reason" required
+                                                class="form-control"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-name">{{
+                                                __('admin-content.note') }}</label>
+                                            <textarea type="text" name="note"
                                                 class="form-control"></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>
